@@ -1,5 +1,5 @@
-// Preencha estes campos quando quiser ligar os botões às páginas reais.
+// Links principais da landing page.
 const TIMI_CONFIG = {
-  affiliateUrl: '#',
+  affiliateUrl: 'https://timihqs.com/#/pages/login/registerView?code=d3of54',
   telegramUrl: '#'
 };
