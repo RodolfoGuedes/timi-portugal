@@ -50,12 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
     .faq-section{background:#f6f8f2}.faq-section details{border-color:#dce4d4}
     .footer{background:#b8f500;color:#18200e;padding:40px 0 28px}.footer p{color:#53601d}.footer-actions a{color:#27300f}.footer-actions a:hover{color:#fff}.disclaimer{border-color:rgba(40,70,10,.16);color:#53601d}.microcopy{color:#69745e}
     .news-section{background:#f8faf5}.news-intro{max-width:760px;margin-bottom:26px}.news-grid{grid-template-columns:repeat(3,1fr)}.news-card{overflow:hidden;border:1px solid #e0e7d8;background:#fff;border-radius:20px;box-shadow:0 8px 22px rgba(45,70,15,.07)}.news-visual{height:170px;display:flex;align-items:flex-end;padding:16px;background:linear-gradient(135deg,#174b08,#54ad00);color:#fff;position:relative}.news-visual.event{background:linear-gradient(135deg,#173b0b,#66ae00 52%,#ddff8b)}.news-visual.prize{background:linear-gradient(135deg,#102d0b,#42ad00 55%,#dfff72)}.news-visual .visual-icon{font-size:48px;line-height:1;filter:drop-shadow(0 3px 5px rgba(0,0,0,.2))}.news-visual .visual-label{position:absolute;right:14px;top:14px;background:#b8f500;color:#1c2509;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900}.news-body{padding:20px}.news-body h3{margin:6px 0 10px;color:#252d19}.news-body p{color:#5f6858;margin:0 0 14px}.news-kicker{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#5e8e36}.news-source{display:block;color:#7a8274;line-height:1.45}.news-status{display:inline-block;background:#efffc9;color:#5b7c20;border-radius:999px;padding:7px 10px;font-size:11px;font-weight:800}.news-card.news-new{border-color:#d0e99a}.news-card.news-new:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(45,70,15,.12)}
+    .news-card.has-photo .news-photo{height:190px;position:relative;overflow:hidden;background:#eaf4df}.news-card.has-photo .news-photo img{width:100%;height:100%;display:block;object-fit:cover;object-position:center;transition:transform .45s ease}.news-card.has-photo:hover .news-photo img{transform:scale(1.035)}.news-card.has-photo .news-photo:after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,25,5,.02) 35%,rgba(10,25,5,.35) 100%);pointer-events:none}.news-card.has-photo .news-photo .news-photo-badge{position:absolute;left:14px;top:14px;z-index:2;background:#b8f500;color:#17200f;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;letter-spacing:.04em;box-shadow:0 5px 14px rgba(0,0,0,.12)}
     .timi-bottom-nav{display:none}
     @media(max-width:800px){
       body{padding-bottom:82px}.site-header{position:sticky}.nav{height:62px}.brand{font-size:21px}
       .hero{padding:38px 0 30px;min-height:auto}.hero:after{right:16px;bottom:12px;font-size:10px;padding:8px 12px}.hero-grid{gap:24px}.hero h1{font-size:43px;line-height:1.02}.hero-text{font-size:16px}.cta-row{margin:22px 0 10px}.btn{min-height:48px}
       .hero-card{min-height:270px;border-width:6px;border-radius:24px;background-position:center}.card-label{left:12px;right:12px;bottom:12px;padding:11px 13px}.card-label strong{font-size:14px}.card-label span{font-size:11px}.section{padding:48px 0}.section-heading h2{font-size:32px}.options-section{padding-top:42px}.options-grid{gap:12px}.option-card{padding:14px;border-width:5px;border-radius:18px}.option-price strong{font-size:29px}.option-detail{padding:12px 8px 13px}.option-detail strong{font-size:20px}
-      .news-grid{grid-template-columns:1fr}.news-visual{height:150px}.news-body{padding:17px}
+      .news-grid{grid-template-columns:1fr}.news-visual{height:150px}.news-body{padding:17px}.news-card.has-photo .news-photo{height:185px}
       .footer{padding-bottom:24px}.footer-inner{gap:16px}.footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.footer-actions a{padding:9px 0}
       .timi-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;z-index:999;background:#b8f500;border-top:1px solid #9ed900;box-shadow:0 -5px 18px rgba(40,50,10,.14);padding:7px 5px calc(7px + env(safe-area-inset-bottom))}
       .timi-bottom-nav a{text-decoration:none;color:#394500;text-align:center;font-weight:800;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:2px}
@@ -65,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
   document.head.appendChild(style);
 
   // Hero: fila de bicicletas elétricas de bike-sharing, semelhante ao modelo da imagem de referência enviada.
-  // A fotografia é usada apenas como referência visual de uma estação com várias bicicletas lado a lado.
   const heroCard = document.querySelector('.hero-card');
   if (heroCard) {
     heroCard.style.backgroundImage = "linear-gradient(180deg,rgba(10,30,5,.03),rgba(10,25,5,.18)),url('https://lisbongo.com/wp-content/uploads/2020/02/Gira-in-lisbon.jpg')";
@@ -99,6 +99,52 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className='news-card news-new';
       card.innerHTML=`<div class="news-visual ${item.cls}"><span class="visual-icon">${item.icon}</span><span class="visual-label">${item.type}</span></div><div class="news-body"><div class="news-kicker">${item.kicker} · ${item.date}</div><h3>${item.title}</h3><p>${item.text}</p><small class="news-source">${item.note}</small></div>`;
       newsGrid.prepend(card);
+    });
+
+    // Fotos editoriais: cada notícia recebe uma imagem contextual para tornar a grelha mais visual.
+    const photoMap = [
+      {
+        match:'Suporte especial anunciado para o lançamento do produto TIMI',
+        url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg',
+        alt:'Aula Magna da Universidade de Lisboa'
+      },
+      {
+        match:'TIMI divulga lojas 4S e centros de formação em Portugal',
+        url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_urban-mc_verde-lightmobie.webp',
+        alt:'Bicicleta elétrica de bike sharing'
+      },
+      {
+        match:'TIMI associada à Festa das Vindimas 2026',
+        url:'https://www.cm-palmela.pt/thumbs/cmpalmela/uploads/content_image/image/2692/dj_pedro_monchique_animou_5_noites_de_festa_1_2500_2500.jpg',
+        alt:'Festa das Vindimas de Palmela 2026'
+      },
+      {
+        match:'Campanha de sorteios divulgada para o lançamento em Lisboa',
+        url:'https://images.pexels.com/photos/6207758/pexels-photo-6207758.jpeg?auto=compress&cs=tinysrgb&w=1200',
+        alt:'Pessoa recebendo um smartphone como presente'
+      },
+      {
+        match:'Novidades da TIMI em destaque',
+        url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_polis_verde.webp',
+        alt:'Bicicleta elétrica Polis para bike sharing'
+      },
+      {
+        match:'Próximos eventos e atividades',
+        url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg',
+        alt:'Espaço de eventos da Aula Magna de Lisboa'
+      }
+    ];
+
+    newsGrid.querySelectorAll('.news-card').forEach(card => {
+      const title = card.querySelector('h3')?.textContent?.trim() || '';
+      const photo = photoMap.find(item => title.includes(item.match) || item.match.includes(title));
+      if (!photo || card.classList.contains('has-photo')) return;
+      const visual = document.createElement('div');
+      visual.className = 'news-photo';
+      visual.innerHTML = `<img src="${photo.url}" alt="${photo.alt}" loading="lazy" decoding="async"><span class="news-photo-badge">${card.querySelector('.news-badge')?.textContent || 'NOTÍCIA'}</span>`;
+      card.insertBefore(visual, card.firstElementChild);
+      card.classList.add('has-photo');
+      card.querySelector('.news-banner')?.remove();
     });
   }
 });
