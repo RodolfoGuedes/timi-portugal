@@ -4,43 +4,33 @@ const TIMI_CONFIG = {
   telegramUrl: 'https://t.me/rodolfoguedes'
 };
 
-// Mantém os textos das notícias limpos e garante imagens reais nos cartões dinâmicos.
 document.addEventListener('DOMContentLoaded', () => {
-  setTimeout(() => {
-    document.querySelectorAll('.news-source').forEach(el => {
-      el.textContent = el.textContent.replace('A programação pública do evento confirma a existência do Palco TIMI e as datas da Festa das Vindimas 2026. cite não é usado no site; fonte externa disponível na página de notícias.', 'A programação pública do evento apresenta o Palco TIMI e as datas da Festa das Vindimas 2026. Confirme sempre os detalhes diretamente nas fontes oficiais do evento.');
-    });
-
-    // Corrige os dois cartões dinâmicos que estavam a aparecer sem fotografia.
-    // São imagens públicas e estáveis do Wikimedia Commons, usadas como representação visual.
+  const applyNewsPhotos = () => {
     const photoNews = [
-      {
-        match: 'Sorteio de prémios associado ao lançamento TIMI em Lisboa',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Gift_box.jpg?width=1200',
-        alt: 'Caixa de presente representando uma campanha de prémios',
-        credit: 'Imagem ilustrativa · Wikimedia Commons'
-      },
-      {
-        match: 'TIMI em destaque na Festa das Vindimas 2026, em Palmela',
-        image: 'https://commons.wikimedia.org/wiki/Special:FilePath/CastelodePalmela.jpg?width=1200',
-        alt: 'Castelo de Palmela, Portugal',
-        credit: 'Fotografia de Palmela · Wikimedia Commons'
-      }
+      ['Sorteio de prémios associado ao lançamento TIMI em Lisboa','https://commons.wikimedia.org/wiki/Special:FilePath/Gift_box.jpg?width=1200','Caixa de presente representando uma campanha de prémios'],
+      ['TIMI em destaque na Festa das Vindimas 2026, em Palmela','https://commons.wikimedia.org/wiki/Special:FilePath/Grapevine_(Vitis_vinifera)_on_vineyard,_Ponte_de_Sor,_Portugal_(approx._GPS_location)_julesvernex2-3.jpg?width=1200','Vinhas em Portugal, imagem representativa da Festa das Vindimas']
     ];
-
     document.querySelectorAll('.news-card.news-new').forEach(card => {
       const title = card.querySelector('h3')?.textContent?.trim() || '';
-      const item = photoNews.find(photo => title.includes(photo.match));
+      const item = photoNews.find(x => title.includes(x[0]));
       if (!item || card.querySelector('.news-photo')) return;
-
       const visual = card.querySelector('.news-visual');
       if (!visual) return;
-
       const photo = document.createElement('div');
-      photo.className = 'news-photo';
-      photo.innerHTML = `<img src="${item.image}" alt="${item.alt}" loading="eager" decoding="async"><span class="news-photo-badge">${visual.querySelector('.visual-label')?.textContent || 'NOTÍCIA'}</span><span class="news-photo-credit">${item.credit}</span>`;
-      visual.replaceWith(photo);
-      card.classList.add('has-photo');
+      photo.className='news-photo';
+      photo.style.cssText='height:190px;position:relative;overflow:hidden;background:linear-gradient(135deg,#164708,#65b900);';
+      const img=document.createElement('img');
+      img.src=item[1]; img.alt=item[2]; img.loading='eager'; img.decoding='async';
+      img.style.cssText='width:100%;height:100%;display:block;object-fit:cover;';
+      img.onerror=()=>{ img.style.display='none'; photo.style.backgroundImage = visual.classList.contains('prize') ? 'linear-gradient(135deg,#102d0b,#42ad00 55%,#dfff72)' : 'linear-gradient(135deg,#173b0b,#66ae00 52%,#ddff8b)'; };
+      const badge=document.createElement('span'); badge.textContent=visual.querySelector('.visual-label')?.textContent||'NOTÍCIA'; badge.style.cssText='position:absolute;left:14px;top:14px;z-index:2;background:#b8f500;color:#17200f;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;';
+      photo.append(img,badge); visual.replaceWith(photo); card.classList.add('has-photo');
     });
-  }, 300);
+  };
+  applyNewsPhotos();
+  setTimeout(applyNewsPhotos,300);
+  setTimeout(applyNewsPhotos,1000);
+  setTimeout(applyNewsPhotos,2500);
+  const grid=document.querySelector('.news-grid');
+  if(grid) new MutationObserver(applyNewsPhotos).observe(grid,{childList:true});
 });
