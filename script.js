@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .hero:after{content:'MOBILIDADE INTELIGENTE';position:absolute;right:5%;bottom:24px;background:#39ad00;color:#fff;border-radius:999px;padding:10px 18px;font-size:11px;font-weight:900;letter-spacing:.08em;box-shadow:0 8px 22px rgba(50,130,0,.18)}
     .hero-grid{align-items:center;gap:42px}.hero h1{font-size:clamp(42px,5.8vw,70px);line-height:.98;color:#17200f;letter-spacing:-.04em}.hero h1 span{color:#39a900}.hero-text{color:#596354;max-width:620px;line-height:1.55}.eyebrow{display:inline-block;color:#fff;background:#39ad00;border-radius:999px;padding:9px 14px;letter-spacing:.08em;font-weight:900}
     .btn{min-height:50px;border-radius:999px;box-shadow:0 7px 18px rgba(40,100,10,.10);font-weight:800}.btn-primary{background:#b8f500;color:#152000}.btn-primary:hover{background:#9fe000}.btn-secondary{border:1px solid #dbe3d2;background:#fff;color:#30382a}
-    .hero-card{min-height:360px;border:8px solid rgba(255,255,255,.94);border-radius:30px;background-color:#edfbd8;background-image:url('https://lightmobie.pt/wp-content/uploads/2025/07/portf_lx_emel_giras_01-1024x1024.webp');background-size:cover;background-position:center;background-repeat:no-repeat;box-shadow:0 18px 45px rgba(40,80,15,.16);position:relative;overflow:hidden}
+    .hero-card{min-height:360px;border:8px solid rgba(255,255,255,.94);border-radius:30px;background-color:#edfbd8;background-image:url('https://lisbongo.com/wp-content/uploads/2020/02/Gira-in-lisbon.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;box-shadow:0 18px 45px rgba(40,80,15,.16);position:relative;overflow:hidden}
     .hero-card:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,30,5,.03) 35%,rgba(10,25,5,.38) 100%);pointer-events:none}.hero-card .bike-art,.hero-card .glow{display:none}
     .card-label{position:absolute;left:20px;right:20px;bottom:18px;z-index:2;background:rgba(255,255,255,.94);border-radius:16px;padding:13px 16px;box-shadow:0 8px 22px rgba(20,40,10,.13)}.card-label strong{display:block;color:#17200f;font-size:16px}.card-label span{display:block;color:#68715f;margin-top:3px;font-size:12px}
     .section{padding:72px 0}.section-heading{margin-bottom:24px}.section-heading span{color:#68a83b}.section-heading h2{color:#18200f}
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     @media(max-width:800px){
       body{padding-bottom:82px}.site-header{position:sticky}.nav{height:62px}.brand{font-size:21px}
       .hero{padding:38px 0 30px;min-height:auto}.hero:after{right:16px;bottom:12px;font-size:10px;padding:8px 12px}.hero-grid{gap:24px}.hero h1{font-size:43px;line-height:1.02}.hero-text{font-size:16px}.cta-row{margin:22px 0 10px}.btn{min-height:48px}
-      .hero-card{min-height:235px;border-width:6px;border-radius:24px;background-position:center}.card-label{left:12px;right:12px;bottom:12px;padding:11px 13px}.card-label strong{font-size:14px}.card-label span{font-size:11px}.section{padding:48px 0}.section-heading h2{font-size:32px}.options-section{padding-top:42px}.options-grid{gap:12px}.option-card{padding:14px;border-width:5px;border-radius:18px}.option-price strong{font-size:29px}.option-detail{padding:12px 8px 13px}.option-detail strong{font-size:20px}
+      .hero-card{min-height:270px;border-width:6px;border-radius:24px;background-position:center}.card-label{left:12px;right:12px;bottom:12px;padding:11px 13px}.card-label strong{font-size:14px}.card-label span{font-size:11px}.section{padding:48px 0}.section-heading h2{font-size:32px}.options-section{padding-top:42px}.options-grid{gap:12px}.option-card{padding:14px;border-width:5px;border-radius:18px}.option-price strong{font-size:29px}.option-detail{padding:12px 8px 13px}.option-detail strong{font-size:20px}
       .news-grid{grid-template-columns:1fr}.news-visual{height:150px}.news-body{padding:17px}
       .footer{padding-bottom:24px}.footer-inner{gap:16px}.footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.footer-actions a{padding:9px 0}
       .timi-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;z-index:999;background:#b8f500;border-top:1px solid #9ed900;box-shadow:0 -5px 18px rgba(40,50,10,.14);padding:7px 5px calc(7px + env(safe-area-inset-bottom))}
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(style);
 
-  // Hero: estação real de bike-sharing com várias bicicletas elétricas lado a lado.
-  // Fotografia de portfolio publicada pela LightMobie Portugal.
+  // Hero: fila de bicicletas elétricas de bike-sharing, semelhante ao modelo da imagem de referência enviada.
+  // A fotografia é usada apenas como referência visual de uma estação com várias bicicletas lado a lado.
   const heroCard = document.querySelector('.hero-card');
   if (heroCard) {
-    heroCard.style.backgroundImage = "linear-gradient(180deg,rgba(10,30,5,.03),rgba(10,25,5,.18)),url('https://lightmobie.pt/wp-content/uploads/2025/07/portf_lx_emel_giras_01-1024x1024.webp')";
+    heroCard.style.backgroundImage = "linear-gradient(180deg,rgba(10,30,5,.03),rgba(10,25,5,.18)),url('https://lisbongo.com/wp-content/uploads/2020/02/Gira-in-lisbon.jpg')";
     heroCard.style.backgroundSize = 'cover';
     heroCard.style.backgroundPosition = 'center';
     heroCard.style.backgroundRepeat = 'no-repeat';
