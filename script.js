@@ -1,18 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Identidade textual: usar apenas a palavra TIMI, sem logótipo gráfico.
-  document.querySelectorAll('.brand').forEach(el => {
-    el.textContent = 'TIMI';
-    el.removeAttribute('aria-label');
-  });
-  document.querySelectorAll('img, svg').forEach(el => {
-    const marker = `${el.getAttribute('alt') || ''} ${el.getAttribute('title') || ''} ${el.getAttribute('id') || ''} ${el.getAttribute('class') || ''} ${el.getAttribute('src') || ''}`.toLowerCase();
-    if (marker.includes('logo') && marker.includes('timi')) {
-      const replacement = document.createElement('span');
-      replacement.className = 'brand';
-      replacement.textContent = 'TIMI';
-      el.replaceWith(replacement);
-    }
-  });
+  const removeTimiLogos = () => {
+    document.querySelectorAll('.brand').forEach(el => {
+      el.textContent = 'TIMI';
+      el.removeAttribute('aria-label');
+    });
+    document.querySelectorAll('img, svg').forEach(el => {
+      const marker = `${el.getAttribute('alt') || ''} ${el.getAttribute('title') || ''} ${el.getAttribute('id') || ''} ${el.getAttribute('class') || ''} ${el.getAttribute('src') || ''}`.toLowerCase();
+      if (marker.includes('logo') && marker.includes('timi')) {
+        const replacement = document.createElement('span');
+        replacement.className = 'brand';
+        replacement.textContent = 'TIMI';
+        el.replaceWith(replacement);
+      }
+    });
+  };
+  removeTimiLogos();
+  new MutationObserver(removeTimiLogos).observe(document.body, {childList:true, subtree:true});
 
   const config = window.TIMI_CONFIG || {};
   document.querySelectorAll('[data-affiliate]').forEach(link => {
@@ -93,20 +97,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsGrid = document.querySelector('.news-grid');
   if (newsGrid) {
     const newNews = [
-      {
-        type:'SORTEIO', cls:'prize', icon:'🎁', date:'ATÉ 12 SET 2026',
-        kicker:'Campanha divulgada',
-        title:'Sorteio de prémios associado ao lançamento TIMI em Lisboa',
-        text:'O material divulgado apresenta uma campanha de números de sorteio associada à escolha ou atualização de equipamentos e à progressão de parceiros. Entre os prémios ilustrados estão iPhone, tablet, TV, cafeteira, coluna Bluetooth, extrator de sumo, auriculares e secador.',
-        note:'As regras, elegibilidade e condições devem ser confirmadas através das informações oficiais aplicáveis.'
-      },
-      {
-        type:'EVENTO', cls:'event', icon:'🚲', date:'3–8 SET 2026',
-        kicker:'Evento em Portugal',
-        title:'TIMI em destaque na Festa das Vindimas 2026, em Palmela',
-        text:'Os materiais recebidos apresentam a TIMI associada à Festa das Vindimas de Palmela e mostram a marca ligada ao evento e ao Palco TIMI. O programa decorreu de 3 a 8 de setembro de 2026 e incluiu música, cultura, gastronomia e atividades tradicionais.',
-        note:'Informação baseada nos materiais recebidos para esta página.'
-      }
+      {type:'SORTEIO', cls:'prize', icon:'🎁', date:'ATÉ 12 SET 2026', kicker:'Campanha divulgada', title:'Sorteio de prémios associado ao lançamento TIMI em Lisboa', text:'O material divulgado apresenta uma campanha de números de sorteio associada à escolha ou atualização de equipamentos e à progressão de parceiros. Entre os prémios ilustrados estão iPhone, tablet, TV, cafeteira, coluna Bluetooth, extrator de sumo, auriculares e secador.', note:'As regras, elegibilidade e condições devem ser confirmadas através das informações oficiais aplicáveis.'},
+      {type:'EVENTO', cls:'event', icon:'🚲', date:'3–8 SET 2026', kicker:'Evento em Portugal', title:'TIMI em destaque na Festa das Vindimas 2026, em Palmela', text:'Os materiais recebidos apresentam a TIMI associada à Festa das Vindimas de Palmela e mostram a marca ligada ao evento e ao Palco TIMI. O programa decorreu de 3 a 8 de setembro de 2026 e incluiu música, cultura, gastronomia e atividades tradicionais.', note:'Informação baseada nos materiais recebidos para esta página.'}
     ];
     newNews.reverse().forEach(item => {
       const card=document.createElement('article');
@@ -116,38 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const photoMap = [
-      {
-        match:'Suporte especial anunciado para o lançamento do produto TIMI',
-        url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg',
-        alt:'Aula Magna da Universidade de Lisboa'
-      },
-      {
-        match:'TIMI divulga lojas 4S e centros de formação em Portugal',
-        url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_urban-mc_verde-lightmobie.webp',
-        alt:'Bicicleta elétrica de bike sharing'
-      },
-      {
-        match:'TIMI associada à Festa das Vindimas 2026',
-        url:'https://www.cm-palmela.pt/thumbs/cmpalmela/uploads/content_image/image/2692/dj_pedro_monchique_animou_5_noites_de_festa_1_2500_2500.jpg',
-        alt:'Festa das Vindimas de Palmela 2026'
-      },
-      {
-        match:'Campanha de sorteios divulgada para o lançamento em Lisboa',
-        url:'https://images.pexels.com/photos/6207758/pexels-photo-6207758.jpeg?auto=compress&cs=tinysrgb&w=1200',
-        alt:'Pessoa recebendo um smartphone como presente'
-      },
-      {
-        match:'Novidades da TIMI em destaque',
-        url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_polis_verde.webp',
-        alt:'Bicicleta elétrica Polis para bike sharing'
-      },
-      {
-        match:'Próximos eventos e atividades',
-        url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg',
-        alt:'Espaço de eventos da Aula Magna de Lisboa'
-      }
+      {match:'Suporte especial anunciado para o lançamento do produto TIMI', url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg', alt:'Aula Magna da Universidade de Lisboa'},
+      {match:'TIMI divulga lojas 4S e centros de formação em Portugal', url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_urban-mc_verde-lightmobie.webp', alt:'Bicicleta elétrica de bike sharing'},
+      {match:'TIMI associada à Festa das Vindimas 2026', url:'https://www.cm-palmela.pt/thumbs/cmpalmela/uploads/content_image/image/2692/dj_pedro_monchique_animou_5_noites_de_festa_1_2500_2500.jpg', alt:'Festa das Vindimas de Palmela 2026'},
+      {match:'Campanha de sorteios divulgada para o lançamento em Lisboa', url:'https://images.pexels.com/photos/6207758/pexels-photo-6207758.jpeg?auto=compress&cs=tinysrgb&w=1200', alt:'Pessoa recebendo um smartphone como presente'},
+      {match:'Novidades da TIMI em destaque', url:'https://lightmobie.pt/wp-content/uploads/2026/07/bici_polis_verde.webp', alt:'Bicicleta elétrica Polis para bike sharing'},
+      {match:'Próximos eventos e atividades', url:'https://upload.wikimedia.org/wikipedia/commons/2/2c/Aula_Magna_da_Universidade_de_Lisboa_-_Portugal_%F0%9F%87%B5%F0%9F%87%B9_%2853886407323%29.jpg', alt:'Espaço de eventos da Aula Magna de Lisboa'}
     ];
-
     newsGrid.querySelectorAll('.news-card').forEach(card => {
       const title = card.querySelector('h3')?.textContent?.trim() || '';
       const photo = photoMap.find(item => title.includes(item.match) || item.match.includes(title));
