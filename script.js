@@ -15,6 +15,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const bottomNav = document.createElement('nav');
+  bottomNav.className = 'timi-bottom-nav';
+  bottomNav.setAttribute('aria-label', 'Navegação rápida');
+  bottomNav.innerHTML = `
+    <a href="#top"><span>⌂</span><small>Início</small></a>
+    <a href="#opcoes"><span>▣</span><small>Opções</small></a>
+    <a href="${config.telegramUrl || 'https://t.me/rodolfoguedes'}" target="_blank" rel="noopener noreferrer"><span>✈</span><small>Telegram</small></a>
+    <a href="${config.affiliateUrl || '#'}" target="_blank" rel="noopener noreferrer"><span>↗</span><small>Participar</small></a>
+    <a href="guia-seguranca.html"><span>◉</span><small>Segurança</small></a>
+  `;
+  document.body.appendChild(bottomNav);
+
   const style = document.createElement('style');
   style.textContent = `
     :root{--accent:#c8f500;--timi-lime:#eaff93;--timi-soft:#f7ffd0;--timi-ink:#202510}
@@ -39,7 +51,17 @@ document.addEventListener('DOMContentLoaded', () => {
     .action-card{background:#eff4d9;border-color:#dbe5ad;border-radius:20px}.action-card .btn-secondary{background:#fff;color:#2c311f;border-color:#d4dac0}
     .faq-section{background:#f3f5ed}.faq-section details{border-color:#d8ddcf}
     .footer{background:#c5f200;color:#20260f;padding:38px 0 28px}.footer p{color:#596023}.footer-actions a{color:#2b320e}.footer-actions a:hover{color:#fff}.disclaimer{border-color:rgba(50,60,10,.16);color:#596023}.microcopy{color:#687052}
-    @media(max-width:800px){body{padding-bottom:70px}.site-header{position:sticky}.nav{height:62px}.brand{font-size:21px}.hero{padding:42px 0 28px;min-height:auto}.hero:after{right:16px;bottom:12px;font-size:12px;padding:8px 13px}.hero-grid{gap:24px}.hero h1{font-size:43px;line-height:1.02}.hero-text{font-size:16px}.cta-row{margin:22px 0 10px}.btn{min-height:48px}.hero-card{min-height:235px;border-width:6px;border-radius:24px}.bike-art{inset:25px 12px 70px}.wheel{width:100px;height:100px}.frame{width:155px}.section{padding:48px 0}.section-heading h2{font-size:32px}.options-section{padding-top:42px}.options-grid{gap:12px}.option-card{padding:14px;border-width:5px;border-radius:18px}.option-price strong{font-size:29px}.option-detail{padding:12px 8px 13px}.option-detail strong{font-size:20px}.footer{padding-bottom:24px}.footer-inner{gap:16px}.footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.footer-actions a{padding:9px 0}}
+    .timi-bottom-nav{display:none}
+    @media(max-width:800px){
+      body{padding-bottom:82px}.site-header{position:sticky}.nav{height:62px}.brand{font-size:21px}
+      .hero{padding:42px 0 28px;min-height:auto}.hero:after{right:16px;bottom:12px;font-size:12px;padding:8px 13px}.hero-grid{gap:24px}.hero h1{font-size:43px;line-height:1.02}.hero-text{font-size:16px}.cta-row{margin:22px 0 10px}.btn{min-height:48px}
+      .hero-card{min-height:235px;border-width:6px;border-radius:24px}.bike-art{inset:25px 12px 70px}.wheel{width:100px;height:100px}.frame{width:155px}
+      .section{padding:48px 0}.section-heading h2{font-size:32px}.options-section{padding-top:42px}.options-grid{gap:12px}.option-card{padding:14px;border-width:5px;border-radius:18px}.option-price strong{font-size:29px}.option-detail{padding:12px 8px 13px}.option-detail strong{font-size:20px}
+      .footer{padding-bottom:24px}.footer-inner{gap:16px}.footer-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}.footer-actions a{padding:9px 0}
+      .timi-bottom-nav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;z-index:999;background:#c8f500;border-top:1px solid #b3d900;box-shadow:0 -5px 18px rgba(40,50,10,.14);padding:7px 5px calc(7px + env(safe-area-inset-bottom))}
+      .timi-bottom-nav a{text-decoration:none;color:#394500;text-align:center;font-weight:800;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:2px}
+      .timi-bottom-nav span{font-size:23px;line-height:22px}.timi-bottom-nav small{font-size:10px;font-weight:800}
+    }
   `;
   document.head.appendChild(style);
 });
