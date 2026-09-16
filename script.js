@@ -67,6 +67,22 @@ document.addEventListener('DOMContentLoaded', () => {
   `;
   document.head.appendChild(style);
 
+  // Substitui o desenho da bicicleta no cartão principal por uma bicicleta de bike-sharing real.
+  // A imagem abaixo é de um produto de bike-sharing publicado pela LightMobie Portugal.
+  const heroCard = document.querySelector('.hero-card');
+  if (heroCard) {
+    heroCard.style.backgroundImage = "linear-gradient(145deg,rgba(250,255,223,.18),rgba(223,255,85,.08)),url('https://lightmobie.pt/wp-content/uploads/2026/07/bici_polis_verde.webp')";
+    heroCard.style.backgroundSize = 'contain';
+    heroCard.style.backgroundPosition = 'center';
+    heroCard.style.backgroundRepeat = 'no-repeat';
+    heroCard.style.backgroundColor = '#eaff93';
+    heroCard.querySelector('.bike-art')?.remove();
+    heroCard.querySelector('.glow')?.remove();
+    heroCard.style.display = 'flex';
+    heroCard.style.alignItems = 'flex-end';
+    heroCard.style.justifyContent = 'flex-start';
+  }
+
   // Novas notícias recebidas: entram automaticamente no início da área de notícias.
   const newsGrid = document.querySelector('.news-grid');
   if (newsGrid) {
@@ -83,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         kicker:'Evento em Portugal',
         title:'TIMI em destaque na Festa das Vindimas 2026, em Palmela',
         text:'Os materiais recebidos apresentam a TIMI associada à Festa das Vindimas de Palmela e mostram a marca ligada ao evento e ao Palco TIMI. O programa decorreu de 3 a 8 de setembro de 2026 e incluiu música, cultura, gastronomia e atividades tradicionais.',
-        note:'A programação pública do evento confirma a existência do Palco TIMI e as datas da Festa das Vindimas 2026. cite não é usado no site; fonte externa disponível na página de notícias.'
+        note:'Informação baseada nos materiais recebidos para esta página.'
       }
     ];
     newNews.reverse().forEach(item => {
