@@ -1,0 +1,8 @@
+document.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{const main=document.querySelector('main');if(!main)return;
+// Remove repetitive caution boxes and micro-disclaimers while preserving operational rules, fees and conditions.
+document.querySelectorAll('.financial-note,.microcopy').forEach(el=>el.remove());
+// Remove standalone paragraphs/small notes whose only purpose is repeated guarantee language.
+const phrases=['não constitui garantia','não constituem garantia','garantia independente','rendimento garantido','retorno líquido garantido','não devem ser tratados como promessa'];
+document.querySelectorAll('main p,main small,main span').forEach(el=>{const t=(el.textContent||'').toLowerCase();if(phrases.some(p=>t.includes(p))&&t.length<420)el.remove();});
+let note=document.querySelector('#informacao-geral');if(!note){note=document.createElement('section');note.id='informacao-geral';note.innerHTML=`<div class="container"><div style="border-top:1px solid rgba(0,0,0,.12);padding:22px 4px 6px;color:#6f746c;font-size:10.5px;line-height:1.65;"><strong style="display:block;color:#555b52;font-size:11px;margin-bottom:5px;">Informação geral</strong>Este site tem caráter informativo e apresenta o funcionamento, valores e condições do projeto TIMI. Valores diários, prazos, taxas, regras, renovação e reembolso dependem das condições vigentes da plataforma e podem ser alterados. A participação envolve criptoativos e riscos operacionais; resultados não são garantidos. Antes de participar, consulte as regras atuais na aplicação, confirme moeda, rede e endereço em qualquer transferência e tome a sua decisão com base nas condições disponíveis no momento.</div></div>`;main.appendChild(note);}
+},80);});
