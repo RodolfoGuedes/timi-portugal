@@ -102,4 +102,88 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   applyHeroLayout();
   window.addEventListener('resize', applyHeroLayout);
+
+  // Revisão exclusiva para telas pequenas: menu, hero, botões, planos e espaçamento.
+  const applyMobileLayout = () => {
+    if (window.innerWidth > 850) return;
+    const style = document.createElement('style');
+    style.id = 'timi-mobile-overrides';
+    style.textContent = `
+      @media (max-width:850px){
+        .site-header .nav{height:64px;min-height:64px;padding:0 2px;gap:12px}
+        .site-header .brand{font-size:clamp(20px,6vw,24px)!important;flex:0 1 auto;min-width:0}
+        .site-header .nav-telegram{min-height:40px;padding:0 13px;font-size:10px;white-space:nowrap;display:inline-flex;align-items:center}
+        .hero{padding-top:112px!important;padding-bottom:52px!important}
+        .hero-grid{gap:28px!important}
+        .hero-copy{width:100%;max-width:100%;min-width:0}
+        .eyebrow{font-size:9px;letter-spacing:.07em;padding:8px 11px;max-width:100%;white-space:normal}
+        .hero h1{font-size:clamp(40px,11.8vw,52px)!important;line-height:1.01!important;letter-spacing:-.045em!important;margin:18px 0 18px!important;max-width:100%!important;overflow-wrap:normal!important;word-break:normal!important}
+        .hero-text{font-size:16px!important;line-height:1.55!important;max-width:100%!important}
+        .hero-price-line{gap:6px;margin-top:18px}
+        .hero-price-line strong{font-size:25px}
+        .cta-row{display:grid!important;grid-template-columns:1fr;gap:10px!important;margin:22px 0 12px!important}
+        .hero .btn{width:100%;min-height:50px;font-size:14px}
+        .microcopy{font-size:10px;line-height:1.5;max-width:100%}
+        .hero-card{height:300px!important;border-width:5px!important;border-radius:24px!important}
+        .hero-card-content{left:14px;right:14px;bottom:14px;padding:12px 13px;border-radius:14px}
+        .hero-card-content strong{font-size:16px}
+        .hero-proof{display:grid!important;grid-template-columns:1fr 1fr;gap:7px 10px!important;padding-top:17px!important;font-size:9px!important}
+        .section{padding:58px 0!important}
+        .section-heading{gap:10px!important;margin-bottom:20px!important}
+        .section-heading h2{font-size:32px!important;line-height:1.02!important}
+        .section-lead{font-size:15px!important;line-height:1.55!important;margin-bottom:24px!important}
+        .project-grid,.testimonial-grid,.referral-grid,.community-grid,.safety-grid{gap:28px!important}
+        .big-lead{font-size:21px!important}
+        .project-points{gap:9px!important}
+        .project-points div{padding:16px!important}
+        .local-presence{gap:8px!important;margin-top:22px!important}
+        .premium-steps{gap:10px!important}
+        .premium-steps article{padding:20px!important}
+        .activation-card{padding:16px!important}
+        .premium-options{gap:12px!important}
+        .option-card{padding:22px!important;border-radius:20px!important}
+        .option-ribbon{font-size:27px}
+        .option-price{margin:19px 0 13px!important}
+        .option-price strong{font-size:43px!important;letter-spacing:-.055em!important;white-space:nowrap}
+        .option-price span{font-size:12px!important}
+        .daily{padding:12px 0!important}
+        .daily b{font-size:18px!important;white-space:nowrap}
+        .option-copy{min-height:0!important;padding:12px 0!important}
+        .option-card .btn{min-height:50px!important;width:100%!important;font-size:13px!important}
+        .financial-note{padding:14px!important;font-size:11px}
+        .cycle-flow{gap:9px!important}
+        .cycle-choice{gap:9px!important}
+        .cycle-choice div{padding:18px!important}
+        .rewards-grid{gap:10px!important}
+        .reward-card{padding:20px!important}
+        .community-card{min-height:230px!important;padding:24px!important}
+        .community-card>strong{font-size:28px!important}
+        .news-grid{gap:10px!important}
+        .news-body{padding:17px!important}
+        .news-body h3{font-size:19px!important}
+        .safety-link{padding:17px!important}
+        .final-cta{padding:70px 0!important}
+        .final-cta h2{font-size:40px!important}
+        .final-actions{display:grid!important;grid-template-columns:1fr;gap:10px!important}
+        .final-actions .btn{width:100%}
+        .faq-section details{padding:17px 0!important}
+        .faq-section summary{font-size:15px!important;line-height:1.4}
+        .footer{padding-bottom:95px!important}
+      }
+      @media (max-width:380px){
+        .container{width:min(calc(100% - 22px),1120px)!important}
+        .site-header .nav-telegram{padding:0 10px;font-size:9px}
+        .hero h1{font-size:40px!important}
+        .hero-card{height:270px!important}
+        .hero-proof{grid-template-columns:1fr!important}
+        .option-card{padding:18px!important}
+        .option-price strong{font-size:39px!important}
+      }
+    `;
+    const old = document.getElementById('timi-mobile-overrides');
+    if (old) old.remove();
+    document.head.appendChild(style);
+  };
+  applyMobileLayout();
+  window.addEventListener('resize', applyMobileLayout);
 });
