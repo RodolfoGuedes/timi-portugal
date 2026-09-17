@@ -29,17 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
       content:""!important;
       position:absolute!important;
       top:34px!important;
-      right:-55px!important;
+      right:0!important;
       bottom:30px!important;
       width:48%!important;
       max-width:760px!important;
       background-image:
-        linear-gradient(90deg,rgba(244,248,240,1) 0%,rgba(244,248,240,.30) 24%,rgba(244,248,240,0) 52%),
+        linear-gradient(90deg,rgba(244,248,240,1) 0%,rgba(244,248,240,.22) 18%,rgba(244,248,240,0) 42%),
         url('./WhatsApp%20Image%202026-09-17%20at%2003.21.39.jpeg')!important;
       background-repeat:no-repeat!important;
       background-position:center center!important;
-      background-size:cover!important;
-      opacity:.82!important;
+      background-size:100% auto!important;
+      opacity:.88!important;
       border-radius:32px 0 0 32px!important;
       pointer-events:none!important;
       z-index:0!important;
@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .hero-card,.hero-proof{display:none!important}
 
     @media(max-width:900px){
-      .hero::after{opacity:.18!important;right:-22%!important;width:78%!important}
+      .hero::after{opacity:.18!important;right:0!important;width:78%!important;background-size:100% auto!important}
       .hero-copy{width:100%!important;max-width:760px!important;margin:0 auto!important}
       .hero h1{font-size:clamp(44px,7vw,64px)!important}
     }
