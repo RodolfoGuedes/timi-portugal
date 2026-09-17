@@ -33,4 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(applyNewsPhotos,2500);
   const grid=document.querySelector('.news-grid');
   if(grid) new MutationObserver(applyNewsPhotos).observe(grid,{childList:true});
+
+  // Correção exclusiva do cabeçalho: TIMI em verde e Portugal em preto.
+  setTimeout(() => {
+    const brand = document.querySelector('.site-header .brand');
+    if (!brand) return;
+    brand.innerHTML = 'TIMI<span>Portugal</span>';
+    brand.style.color = 'var(--accent)';
+    const country = brand.querySelector('span');
+    if (country) {
+      country.style.color = '#101318';
+      country.style.marginLeft = '7px';
+      country.style.fontWeight = '500';
+    }
+  }, 0);
 });
