@@ -34,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const grid=document.querySelector('.news-grid');
   if(grid) new MutationObserver(applyNewsPhotos).observe(grid,{childList:true});
 
-  // Correção exclusiva do cabeçalho: TIMI em verde e Portugal em preto.
   setTimeout(() => {
     const brand = document.querySelector('.site-header .brand');
     if (!brand) return;
@@ -54,7 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }, 0);
 
-  // Ajuste exclusivo do Hero: evitar corte lateral e melhorar a hierarquia visual.
   const applyHeroLayout = () => {
     const hero = document.querySelector('.hero');
     const heroGrid = document.querySelector('.hero-grid');
@@ -63,7 +61,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroText = document.querySelector('.hero-text');
     const cta = document.querySelector('.hero .cta-row');
     if (!hero || !heroGrid || !heroCopy || !title) return;
-
     hero.style.paddingLeft = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
     hero.style.paddingRight = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
     heroGrid.style.maxWidth = '1120px';
@@ -85,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
       cta.style.marginBottom = '14px';
       cta.style.gap = '12px';
     }
-
     if (window.innerWidth <= 800) {
       hero.style.paddingLeft = '20px';
       hero.style.paddingRight = '20px';
@@ -103,7 +99,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyHeroLayout();
   window.addEventListener('resize', applyHeroLayout);
 
-  // Revisão exclusiva para telas pequenas: menu, hero, botões, planos e espaçamento.
   const applyMobileLayout = () => {
     if (window.innerWidth > 850) return;
     const style = document.createElement('style');
@@ -187,7 +182,6 @@ document.addEventListener('DOMContentLoaded', () => {
   applyMobileLayout();
   window.addEventListener('resize', applyMobileLayout);
 
-  // Destaque exclusivo dos valores dos planos no mobile.
   const plansStyle = document.createElement('style');
   plansStyle.textContent = `
     @media (max-width:850px){
@@ -208,4 +202,37 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(plansStyle);
+
+  // CTA: participação e Telegram claros, consistentes e acessíveis em toda a página.
+  const applyCtaConsistency = () => {
+    const style = document.createElement('style');
+    style.id = 'timi-cta-overrides';
+    style.textContent = `
+      .btn{min-height:48px;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;cursor:pointer;font-weight:800;transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+      .btn:hover{transform:translateY(-2px)}
+      .btn-primary{font-weight:900}
+      .btn-secondary{font-weight:800}
+      .nav-telegram{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;white-space:nowrap;font-weight:900}
+      .hero .btn-primary::after,.option-card .btn-primary::after,.final-actions .btn-primary::after{content:' →';font-weight:900}
+      .hero .btn-secondary::before,.community-section .btn-primary::before{content:'💬 ';}
+      .final-actions{align-items:stretch}
+      .final-actions .btn{min-width:190px}
+      .option-card .btn{margin-top:auto}
+      @media(max-width:850px){
+        .btn{min-height:50px!important}
+        .nav-telegram{min-height:40px!important}
+        .hero .btn,.option-card .btn,.community-section .btn,.final-actions .btn{width:100%}
+      }
+    `;
+    const old = document.getElementById('timi-cta-overrides');
+    if (old) old.remove();
+    document.head.appendChild(style);
+    document.querySelectorAll('a.btn').forEach(btn => {
+      const href = btn.getAttribute('href') || '';
+      if (href.includes('t.me/')) btn.setAttribute('aria-label','Falar no Telegram');
+      if (href.includes('timihqs.com')) btn.setAttribute('aria-label','Participar na TIMI');
+    });
+  };
+  applyCtaConsistency();
+  setTimeout(applyCtaConsistency,300);
 });
