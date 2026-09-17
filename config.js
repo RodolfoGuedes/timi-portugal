@@ -186,4 +186,26 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   applyMobileLayout();
   window.addEventListener('resize', applyMobileLayout);
+
+  // Destaque exclusivo dos valores dos planos no mobile.
+  const plansStyle = document.createElement('style');
+  plansStyle.textContent = `
+    @media (max-width:850px){
+      .options-section{scroll-margin-top:70px}
+      .premium-options .option-card{background:linear-gradient(145deg,#f3ffd0,#ffffff)!important;box-shadow:0 12px 28px rgba(45,70,10,.10)!important}
+      .premium-options .option-price strong{font-size:clamp(48px,16vw,62px)!important;line-height:.92!important;letter-spacing:-.065em!important;color:#17200f!important}
+      .premium-options .option-price span{font-size:15px!important;font-weight:950!important;color:#4f5f3b!important}
+      .premium-options .daily b{color:#2f7800!important;font-size:20px!important}
+      .premium-options .option-card .btn{font-size:14px!important;font-weight:950!important}
+      .premium-options .featured-option{border:2px solid #a9cf38!important;box-shadow:0 16px 34px rgba(55,90,5,.14)!important}
+      .premium-options .popular{box-shadow:0 4px 12px rgba(55,90,5,.12)!important}
+      .financial-note{background:#fbfff4!important}
+    }
+    @media (max-width:380px){
+      .premium-options .option-price strong{font-size:48px!important}
+      .premium-options .option-price span{font-size:13px!important}
+      .premium-options .daily b{font-size:18px!important}
+    }
+  `;
+  document.head.appendChild(plansStyle);
 });
