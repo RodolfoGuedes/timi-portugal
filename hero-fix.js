@@ -3,9 +3,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroGrid = document.querySelector('.hero-grid');
   if (!hero || !heroGrid) return;
 
-  // Temporary visible deployment test.
+  // Public Hero label.
   const eyebrow = hero.querySelector('.eyebrow');
-  if (eyebrow) eyebrow.textContent = 'MOBILIDADE • TECNOLOGIA • PARTICIPAÇÃO • TESTE';
+  if (eyebrow) eyebrow.textContent = 'MOBILIDADE • TECNOLOGIA • PARTICIPAÇÃO';
 
   // Keep the approved Hero content and use the uploaded TIMI artwork only in the free space on desktop.
   const oldVisual = document.querySelector('.timi-hero-visual');
