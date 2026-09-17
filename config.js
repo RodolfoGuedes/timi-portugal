@@ -5,54 +5,6 @@ const TIMI_CONFIG = {
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-  const applyNewsPhotos = () => {
-    const photoNews = [
-      ['Sorteio de prémios associado ao lançamento TIMI em Lisboa','https://commons.wikimedia.org/wiki/Special:FilePath/Gift_box.jpg?width=1200','Caixa de presente representando uma campanha de prémios'],
-      ['TIMI em destaque na Festa das Vindimas 2026, em Palmela','https://commons.wikimedia.org/wiki/Special:FilePath/Grapevine_(Vitis_vinifera)_on_vineyard,_Ponte_de_Sor,_Portugal_(approx._GPS_location)_julesvernex2-3.jpg?width=1200','Vinhas em Portugal, imagem representativa da Festa das Vindimas']
-    ];
-    document.querySelectorAll('.news-card.news-new').forEach(card => {
-      const title = card.querySelector('h3')?.textContent?.trim() || '';
-      const item = photoNews.find(x => title.includes(x[0]));
-      if (!item || card.querySelector('.news-photo')) return;
-      const visual = card.querySelector('.news-visual');
-      if (!visual) return;
-      const photo = document.createElement('div');
-      photo.className='news-photo';
-      photo.style.cssText='height:190px;position:relative;overflow:hidden;background:linear-gradient(135deg,#164708,#65b900);';
-      const img=document.createElement('img');
-      img.src=item[1]; img.alt=item[2]; img.loading='eager'; img.decoding='async';
-      img.style.cssText='width:100%;height:100%;display:block;object-fit:cover;';
-      img.onerror=()=>{ img.style.display='none'; photo.style.backgroundImage = visual.classList.contains('prize') ? 'linear-gradient(135deg,#102d0b,#42ad00 55%,#dfff72)' : 'linear-gradient(135deg,#173b0b,#66ae00 52%,#ddff8b)'; };
-      const badge=document.createElement('span'); badge.textContent=visual.querySelector('.visual-label')?.textContent||'NOTÍCIA'; badge.style.cssText='position:absolute;left:14px;top:14px;z-index:2;background:#b8f500;color:#17200f;border-radius:999px;padding:7px 10px;font-size:10px;font-weight:900;';
-      photo.append(img,badge); visual.replaceWith(photo); card.classList.add('has-photo');
-    });
-  };
-  applyNewsPhotos();
-  setTimeout(applyNewsPhotos,300);
-  setTimeout(applyNewsPhotos,1000);
-  setTimeout(applyNewsPhotos,2500);
-  const grid=document.querySelector('.news-grid');
-  if(grid) new MutationObserver(applyNewsPhotos).observe(grid,{childList:true});
-
-  setTimeout(() => {
-    const brand = document.querySelector('.site-header .brand');
-    if (!brand) return;
-    brand.innerHTML = 'TIMI<span>Portugal</span>';
-    brand.style.color = 'var(--accent)';
-    brand.style.display = 'flex';
-    brand.style.alignItems = 'center';
-    brand.style.gap = '10px';
-    brand.style.whiteSpace = 'nowrap';
-    brand.style.fontSize = 'clamp(18px, 3vw, 24px)';
-    const country = brand.querySelector('span');
-    if (country) {
-      country.style.color = '#101318';
-      country.style.marginLeft = '0';
-      country.style.fontWeight = '500';
-      country.style.fontSize = '0.78em';
-    }
-  }, 0);
-
   const applyHeroLayout = () => {
     const hero = document.querySelector('.hero');
     const heroGrid = document.querySelector('.hero-grid');
@@ -61,10 +13,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const heroText = document.querySelector('.hero-text');
     const cta = document.querySelector('.hero .cta-row');
     if (!hero || !heroGrid || !heroCopy || !title) return;
-    hero.style.paddingLeft = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
-    hero.style.paddingRight = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
+
+    // O hero já contém um .container. Não adicionamos padding horizontal
+    // extra, para que o início do hero fique exatamente alinhado com
+    // o header e com as demais seções da página.
+    hero.style.paddingLeft = '0';
+    hero.style.paddingRight = '0';
     heroGrid.style.maxWidth = '1120px';
-    heroGrid.style.width = '100%';
+    heroGrid.style.width = 'min(calc(100% - 40px), 1120px)';
+    heroGrid.style.marginLeft = 'auto';
+    heroGrid.style.marginRight = 'auto';
     heroCopy.style.minWidth = '0';
     title.style.maxWidth = '640px';
     title.style.overflowWrap = 'normal';
@@ -82,12 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
       cta.style.marginBottom = '14px';
       cta.style.gap = '12px';
     }
+
     if (window.innerWidth <= 800) {
-      hero.style.paddingLeft = '20px';
-      hero.style.paddingRight = '20px';
+      hero.style.paddingLeft = '0';
+      hero.style.paddingRight = '0';
       hero.style.paddingTop = '112px';
       hero.style.paddingBottom = '56px';
-      heroGrid.style.width = '100%';
+      heroGrid.style.width = 'calc(100% - 28px)';
+      heroGrid.style.maxWidth = '1120px';
       title.style.fontSize = 'clamp(42px, 12vw, 54px)';
       title.style.lineHeight = '1.02';
       title.style.letterSpacing = '-.045em';
@@ -108,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .site-header .nav{height:64px;min-height:64px;padding:0 2px;gap:12px}
         .site-header .brand{font-size:clamp(20px,6vw,24px)!important;flex:0 1 auto;min-width:0}
         .site-header .nav-telegram{min-height:40px;padding:0 13px;font-size:10px;white-space:nowrap;display:inline-flex;align-items:center}
-        .hero{padding-top:112px!important;padding-bottom:52px!important}
-        .hero-grid{gap:28px!important}
+        .hero{padding-top:112px!important;padding-bottom:52px!important;padding-left:0!important;padding-right:0!important}
+        .hero-grid{gap:28px!important;width:calc(100% - 28px)!important;max-width:1120px!important;margin-left:auto!important;margin-right:auto!important}
         .hero-copy{width:100%;max-width:100%;min-width:0}
         .eyebrow{font-size:9px;letter-spacing:.07em;padding:8px 11px;max-width:100%;white-space:normal}
         .hero h1{font-size:clamp(40px,11.8vw,52px)!important;line-height:1.01!important;letter-spacing:-.045em!important;margin:18px 0 18px!important;max-width:100%!important;overflow-wrap:normal!important;word-break:normal!important}
