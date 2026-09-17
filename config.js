@@ -53,4 +53,53 @@ document.addEventListener('DOMContentLoaded', () => {
       country.style.fontSize = '0.78em';
     }
   }, 0);
+
+  // Ajuste exclusivo do Hero: evitar corte lateral e melhorar a hierarquia visual.
+  const applyHeroLayout = () => {
+    const hero = document.querySelector('.hero');
+    const heroGrid = document.querySelector('.hero-grid');
+    const heroCopy = document.querySelector('.hero-copy');
+    const title = document.querySelector('.hero h1');
+    const heroText = document.querySelector('.hero-text');
+    const cta = document.querySelector('.hero .cta-row');
+    if (!hero || !heroGrid || !heroCopy || !title) return;
+
+    hero.style.paddingLeft = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
+    hero.style.paddingRight = 'max(16px, calc((100vw - 1120px) / 2 + 20px))';
+    heroGrid.style.maxWidth = '1120px';
+    heroGrid.style.width = '100%';
+    heroCopy.style.minWidth = '0';
+    title.style.maxWidth = '640px';
+    title.style.overflowWrap = 'normal';
+    title.style.wordBreak = 'normal';
+    title.style.textWrap = 'balance';
+    title.style.marginBottom = '22px';
+    if (heroText) {
+      heroText.style.maxWidth = '560px';
+      heroText.style.marginTop = '0';
+      heroText.style.marginBottom = '0';
+      heroText.style.lineHeight = '1.55';
+    }
+    if (cta) {
+      cta.style.marginTop = '28px';
+      cta.style.marginBottom = '14px';
+      cta.style.gap = '12px';
+    }
+
+    if (window.innerWidth <= 800) {
+      hero.style.paddingLeft = '20px';
+      hero.style.paddingRight = '20px';
+      hero.style.paddingTop = '112px';
+      hero.style.paddingBottom = '56px';
+      heroGrid.style.width = '100%';
+      title.style.fontSize = 'clamp(42px, 12vw, 54px)';
+      title.style.lineHeight = '1.02';
+      title.style.letterSpacing = '-.045em';
+      title.style.maxWidth = '100%';
+      if (heroText) heroText.style.fontSize = '17px';
+      if (cta) cta.style.marginTop = '24px';
+    }
+  };
+  applyHeroLayout();
+  window.addEventListener('resize', applyHeroLayout);
 });
