@@ -40,11 +40,17 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!brand) return;
     brand.innerHTML = 'TIMI<span>Portugal</span>';
     brand.style.color = 'var(--accent)';
+    brand.style.display = 'flex';
+    brand.style.alignItems = 'center';
+    brand.style.gap = '10px';
+    brand.style.whiteSpace = 'nowrap';
+    brand.style.fontSize = 'clamp(18px, 3vw, 24px)';
     const country = brand.querySelector('span');
     if (country) {
       country.style.color = '#101318';
-      country.style.marginLeft = '7px';
+      country.style.marginLeft = '0';
       country.style.fontWeight = '500';
+      country.style.fontSize = '0.78em';
     }
   }, 0);
 });
