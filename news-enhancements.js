@@ -8,41 +8,54 @@ document.addEventListener('DOMContentLoaded', () => {
     section.innerHTML = `
       <div class="container">
         <div class="section-heading"><span>09</span><h2>Vídeos TIMI</h2></div>
-        <p class="lead section-lead">Veja a criatividade da comunidade TIMI em ação.</p>
+        <p class="lead section-lead">Conheça momentos, eventos e iniciativas divulgadas pela comunidade TIMI.</p>
 
-        <article class="timi-video-feature">
-          <div class="timi-video-player">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/KXUMbNIgTqU?rel=0"
-              title="Vídeo criativo TIMI"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerpolicy="strict-origin-when-cross-origin"
-              allowfullscreen></iframe>
-          </div>
-
-          <div class="timi-video-copy">
-            <span class="video-kicker">COMUNIDADE • CRIATIVIDADE • TIMI</span>
-            <h3>Criatividade que põe a TIMI em movimento</h3>
-            <p class="video-intro">Durante o lançamento dos produtos TIMI, participantes combinaram bicicletas partilhadas, mobilidade verde e situações do dia a dia para criar e publicar os seus próprios vídeos.</p>
-
-            <div class="video-more-text" id="video-more-text">
-              <p>Os conteúdos atraíram visualizações e gostos nas redes sociais e ajudaram a apresentar a TIMI a mais pessoas de forma leve e divertida.</p>
-              <p>A divulgação não precisa de ser muito profissional. Uma ideia simples, gravada com família ou amigos e ligada à bicicleta, ao trabalho, às compras, às viagens ou até ao humor pode tornar-se conteúdo interessante.</p>
-              <p>Segundo as informações divulgadas sobre a atividade, 10 parceiros apresentados nos vídeos receberam prémios TIMI pela criatividade e participação, num valor total anunciado de 1.700 euros.</p>
-              <p>A proposta da atividade foi incentivar as pessoas a participar, criar e partilhar as suas próprias ideias em vídeo.</p>
+        <div class="timi-videos-list">
+          <article class="timi-video-feature">
+            <div class="timi-video-player">
+              <iframe src="https://www.youtube-nocookie.com/embed/KXUMbNIgTqU?rel=0" title="Vídeo criativo TIMI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
+            <div class="timi-video-copy">
+              <span class="video-kicker">COMUNIDADE • CRIATIVIDADE • TIMI</span>
+              <h3>Criatividade que põe a TIMI em movimento</h3>
+              <p class="video-intro">Durante o lançamento dos produtos TIMI, participantes combinaram bicicletas partilhadas, mobilidade verde e situações do dia a dia para criar e publicar os seus próprios vídeos.</p>
+              <div class="video-more-text">
+                <p>Os conteúdos atraíram visualizações e gostos nas redes sociais e ajudaram a apresentar a TIMI a mais pessoas de forma leve e divertida.</p>
+                <p>A divulgação não precisa de ser muito profissional. Uma ideia simples, gravada com família ou amigos e ligada à bicicleta, ao trabalho, às compras, às viagens ou até ao humor pode tornar-se conteúdo interessante.</p>
+                <p>Segundo as informações divulgadas sobre a atividade, 10 parceiros apresentados nos vídeos receberam prémios TIMI pela criatividade e participação, num valor total anunciado de 1.700 euros.</p>
+                <p>A proposta da atividade foi incentivar as pessoas a participar, criar e partilhar as suas próprias ideias em vídeo.</p>
+              </div>
+              <button class="video-more-button" type="button" aria-expanded="false">Ver mais</button>
+            </div>
+          </article>
 
-            <button class="video-more-button" type="button" aria-expanded="false" aria-controls="video-more-text">Ver mais</button>
-          </div>
-        </article>
+          <article class="timi-video-feature">
+            <div class="timi-video-player">
+              <iframe src="https://www.youtube-nocookie.com/embed/ISsFWPg50gg?rel=0" title="Evento de lançamento TIMI em Lisboa" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="timi-video-copy">
+              <span class="video-kicker">LISBOA • 12 DE SETEMBRO • LANÇAMENTO</span>
+              <h3>Um dia memorável para a TIMI em Portugal</h3>
+              <p class="video-intro">O dia 12 de setembro marcou o primeiro evento de lançamento das bicicletas elétricas partilhadas TIMI, reunindo parceiros, familiares e amigos na Aula Magna da Universidade de Lisboa.</p>
+              <div class="video-more-text">
+                <p>O evento foi apresentado como um novo passo no desenvolvimento da TIMI em Portugal, depois do crescimento do mercado, da criação de centros de experiência física e da apresentação de produtos.</p>
+                <p>A programação divulgada decorreu das 15h00 às 20h00 e convidou os participantes a conhecer presencialmente o trabalho desenvolvido.</p>
+                <p>O cantor português Quim Barreiros foi anunciado como presença no palco, com momentos de interação, fotografias, música e celebração.</p>
+                <p>A comunicação do evento convidava os parceiros a levarem familiares e amigos para conhecerem a iniciativa e testemunharem este momento da TIMI em Portugal.</p>
+              </div>
+              <button class="video-more-button" type="button" aria-expanded="false">Ver mais</button>
+            </div>
+          </article>
+        </div>
       </div>`;
 
-    const button = section.querySelector('.video-more-button');
-    button?.addEventListener('click', () => {
-      const expanded = section.classList.toggle('video-description-expanded');
-      button.textContent = expanded ? 'Ver menos' : 'Ver mais';
-      button.setAttribute('aria-expanded', String(expanded));
+    section.querySelectorAll('.timi-video-feature').forEach((card) => {
+      const button = card.querySelector('.video-more-button');
+      button?.addEventListener('click', () => {
+        const expanded = card.classList.toggle('video-description-expanded');
+        button.textContent = expanded ? 'Ver menos' : 'Ver mais';
+        button.setAttribute('aria-expanded', String(expanded));
+      });
     });
 
     section.dataset.videoReady = 'true';
@@ -52,7 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
   style.id = 'timi-video-enhancements';
   style.textContent = `
     .video-section{background:#f8faf5}
-    .timi-video-feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.85fr);gap:28px;align-items:center;margin-top:30px;padding:22px;background:#fff;border:1px solid #e1e8d8;border-radius:24px;box-shadow:0 18px 50px rgba(29,48,20,.08)}
+    .timi-videos-list{display:flex;flex-direction:column;gap:28px;margin-top:30px}
+    .timi-video-feature{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(300px,.85fr);gap:28px;align-items:center;padding:22px;background:#fff;border:1px solid #e1e8d8;border-radius:24px;box-shadow:0 18px 50px rgba(29,48,20,.08)}
     .timi-video-player{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:18px;background:#111}
     .timi-video-player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
     .timi-video-copy{padding:8px 10px 8px 4px}
