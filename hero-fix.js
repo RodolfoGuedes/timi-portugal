@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const heroGrid = document.querySelector('.hero-grid');
   if (!hero || !heroGrid) return;
 
-  // Final text-only Hero. The lower proof row is intentionally removed.
+  // Keep the approved Hero content and use the uploaded TIMI artwork only in the free space on desktop.
   const oldVisual = document.querySelector('.timi-hero-visual');
   if (oldVisual) oldVisual.remove();
 
@@ -21,16 +21,37 @@ document.addEventListener('DOMContentLoaded', () => {
         radial-gradient(circle at 84% 88%,rgba(199,255,0,.09),transparent 28%),
         linear-gradient(180deg,#f8faf6 0%,#edf3e8 100%)!important;
     }
+    .hero::after{
+      content:""!important;
+      position:absolute!important;
+      top:34px!important;
+      right:-55px!important;
+      bottom:30px!important;
+      width:48%!important;
+      max-width:760px!important;
+      background-image:
+        linear-gradient(90deg,rgba(244,248,240,1) 0%,rgba(244,248,240,.30) 24%,rgba(244,248,240,0) 52%),
+        url('./WhatsApp%20Image%202026-09-17%20at%2003.21.39.jpeg')!important;
+      background-repeat:no-repeat!important;
+      background-position:center center!important;
+      background-size:cover!important;
+      opacity:.82!important;
+      border-radius:32px 0 0 32px!important;
+      pointer-events:none!important;
+      z-index:0!important;
+    }
     .hero-grid{
+      position:relative!important;
+      z-index:1!important;
       display:block!important;
       width:min(calc(100% - 40px),1040px)!important;
       max-width:1040px!important;
       margin:0 auto!important;
     }
     .hero-copy{
-      width:100%!important;
-      max-width:900px!important;
-      margin:0 auto!important;
+      width:54%!important;
+      max-width:610px!important;
+      margin:0 auto 0 0!important;
       text-align:center!important;
       display:flex!important;
       flex-direction:column!important;
@@ -52,17 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
       max-width:900px!important;
       margin:0!important;
       color:#182016!important;
-      font-size:clamp(46px,5.5vw,70px)!important;
+      font-size:clamp(42px,4.3vw,64px)!important;
       line-height:1.02!important;
       letter-spacing:-.045em!important;
       font-weight:900!important;
     }
     .hero h1 span{color:#668500!important}
     .hero-text{
-      max-width:700px!important;
+      max-width:620px!important;
       margin:18px auto 0!important;
       color:#4d5849!important;
-      font-size:18px!important;
+      font-size:17px!important;
       line-height:1.5!important;
     }
     .hero-price-line{
@@ -80,53 +101,24 @@ document.addEventListener('DOMContentLoaded', () => {
       background:#fff!important;
       box-shadow:0 8px 24px rgba(28,40,24,.07)!important;
     }
-    .hero-price-line span{
-      color:#505b4c!important;
-      font-size:13px!important;
-      line-height:1.2!important;
-      font-weight:700!important;
-    }
-    .hero-price-line strong{
-      display:block!important;
-      color:#15200f!important;
-      font-size:clamp(34px,4vw,46px)!important;
-      line-height:1!important;
-      letter-spacing:-.035em!important;
-      font-weight:900!important;
-    }
-    .hero-price-line small{
-      color:#6b7566!important;
-      font-size:10px!important;
-      line-height:1.25!important;
-      font-weight:600!important;
-    }
-    .hero .cta-row{
-      display:flex!important;
-      justify-content:center!important;
-      align-items:center!important;
-      gap:12px!important;
-      width:100%!important;
-      margin:20px 0 0!important;
-    }
-    .hero .btn{
-      min-height:50px!important;
-      padding:0 24px!important;
-      border-radius:11px!important;
-      font-size:14px!important;
-      font-weight:800!important;
-    }
-    .hero .microcopy{
-      max-width:650px!important;
-      margin:12px auto 0!important;
-      color:#697363!important;
-      font-size:11px!important;
-      line-height:1.4!important;
-      text-align:center!important;
-    }
+    .hero-price-line span{color:#505b4c!important;font-size:13px!important;line-height:1.2!important;font-weight:700!important}
+    .hero-price-line strong{display:block!important;color:#15200f!important;font-size:clamp(34px,4vw,46px)!important;line-height:1!important;letter-spacing:-.035em!important;font-weight:900!important}
+    .hero-price-line small{color:#6b7566!important;font-size:10px!important;line-height:1.25!important;font-weight:600!important}
+    .hero .cta-row{display:flex!important;justify-content:center!important;align-items:center!important;gap:12px!important;width:100%!important;margin:20px 0 0!important}
+    .hero .btn{min-height:50px!important;padding:0 24px!important;border-radius:11px!important;font-size:14px!important;font-weight:800!important}
+    .hero .microcopy{max-width:650px!important;margin:12px auto 0!important;color:#697363!important;font-size:11px!important;line-height:1.4!important;text-align:center!important}
     .hero-card,.hero-proof{display:none!important}
+
+    @media(max-width:900px){
+      .hero::after{opacity:.18!important;right:-22%!important;width:78%!important}
+      .hero-copy{width:100%!important;max-width:760px!important;margin:0 auto!important}
+      .hero h1{font-size:clamp(44px,7vw,64px)!important}
+    }
     @media(max-width:700px){
       .hero{padding:46px 0 34px!important}
+      .hero::after{display:none!important}
       .hero-grid{width:min(calc(100% - 28px),620px)!important}
+      .hero-copy{width:100%!important;max-width:620px!important;margin:0 auto!important}
       .hero .eyebrow{margin-bottom:14px!important;font-size:9px!important;letter-spacing:.08em!important;padding:7px 10px!important}
       .hero h1{font-size:clamp(40px,12.5vw,56px)!important;line-height:1.02!important}
       .hero-text{margin-top:16px!important;font-size:15px!important;line-height:1.48!important}
