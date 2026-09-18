@@ -18,10 +18,18 @@ document.addEventListener('DOMContentLoaded', () => {
         <div style="padding:20px;border-radius:20px;background:#fff;border:1px solid #dfe7d8;"><strong style="display:block;font-size:16px;margin-bottom:7px;">📈 Existe um programa de progressão</strong><span style="font-size:12px;line-height:1.6;color:#687263;">As informações recebidas indicam níveis e benefícios adicionais ligados à participação e às indicações. Os critérios e benefícios podem variar conforme as regras vigentes.</span></div>
       </div>
 
-      <div style="margin-top:20px;padding:22px;border-radius:20px;background:#f5f9ef;border:1px solid #dfe8d3;">
+      <div class="referral-simple-box" style="margin-top:20px;padding:22px;border-radius:20px;background:#f5f9ef;border:1px solid #dfe8d3;">
         <strong style="display:block;font-size:18px;margin-bottom:12px;">Como funciona de forma simples?</strong>
         <div class="referral-steps"><div><b>01</b><span>Você conhece e utiliza o projeto</span></div><div><b>02</b><span>Se quiser, compartilha com outra pessoa</span></div><div><b>03</b><span>A pessoa conhece as condições e decide por si própria</span></div></div>
       </div>
+
+      <style>
+        #indicacao .referral-simple-box{color:#17200f!important;background:#f5f9ef!important}
+        #indicacao .referral-simple-box>strong{color:#17200f!important}
+        #indicacao .referral-simple-box .referral-steps div{background:#fff!important;border:1px solid #d8e3cf!important;color:#17200f!important}
+        #indicacao .referral-simple-box .referral-steps b{color:#75a900!important;font-weight:950!important}
+        #indicacao .referral-simple-box .referral-steps span{color:#263121!important;font-weight:800!important;text-shadow:none!important}
+      </style>
 
       <div class="financial-note" style="margin-top:18px;">
         <b>Sem obrigação de recrutamento</b>
