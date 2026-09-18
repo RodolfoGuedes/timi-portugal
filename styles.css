@@ -17,3 +17,27 @@
   html{overflow-x:hidden!important;width:100%!important;max-width:100vw!important}
   #top,.hero,main,.section{max-width:100vw!important;overflow-x:hidden!important}
 }
+
+/* Definitive mobile hero cleanup: no desktop artwork or image fragments may render on mobile. */
+@media(max-width:900px){
+  #top.hero,
+  #top.hero *,
+  #top.hero::before,
+  #top.hero::after,
+  #top.hero *::before,
+  #top.hero *::after{
+    background-image:none!important;
+  }
+  #top.hero img,
+  #top.hero picture,
+  #top.hero .hero-photo,
+  #top.hero .timi-hero-visual,
+  #top.hero .hero-card{
+    display:none!important;
+    visibility:hidden!important;
+  }
+  #top.hero{
+    overflow:hidden!important;
+    overflow-x:clip!important;
+  }
+}
