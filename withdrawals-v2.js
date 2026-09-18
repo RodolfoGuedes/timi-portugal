@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <p class="lead section-lead">Os valores acumulados na plataforma podem ser solicitados para uma carteira/conta compatível quando o mínimo da modalidade for atingido. Segundo as informações recebidas, o processo utiliza criptoativos e existe uma taxa aplicada ao levantamento.</p>
 
       <div class="options-grid premium-options">
-        <article class="option-card"><div class="option-ribbon">T2</div><div class="option-label">MÍNIMO PARA LEVANTAR</div><div class="option-price"><strong>30</strong><span>USDT</span></div><div class="option-copy">Valor mínimo indicado para solicitar um levantamento na modalidade T2.</div></article>
+        <article class="option-card"><div class="option-ribbon">T5</div><div class="option-label">MÍNIMO PARA LEVANTAR</div><div class="option-price"><strong>—</strong><span></span></div><div class="option-copy">Consulte o mínimo de levantamento atualmente aplicável à modalidade T5.</div></article>
         <article class="option-card"><div class="option-ribbon">T3</div><div class="option-label">MÍNIMO PARA LEVANTAR</div><div class="option-price"><strong>50</strong><span>USDT</span></div><div class="option-copy">Valor mínimo indicado para solicitar um levantamento na modalidade T3.</div></article>
         <article class="option-card"><div class="option-ribbon">T4</div><div class="option-label">MÍNIMO PARA LEVANTAR</div><div class="option-price"><strong>100</strong><span>USDT</span></div><div class="option-copy">Valor mínimo indicado para solicitar um levantamento na modalidade T4.</div></article>
       </div>
