@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         <article class="option-card">
           <div class="option-ribbon">T5</div>
           <div class="option-label">AVANÇADA+</div>
-          <div class="option-price"><strong>3.000</strong><span>USDT</span></div>
-          <div class="daily"><small>Valor diário indicado</small><b>75 USDT</b></div>
+          <div class="option-price"><strong>2.700</strong><span>USDT</span></div>
+          <div class="daily"><small>Valor diário indicado</small><b>63 USDT</b></div>
           <div class="option-copy">Modalidade de maior valor entre as três opções atualmente apresentadas.</div>
           <a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a>
         </article>
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <div class="financial-note">
         <b>Como interpretar estes valores</b>
-        <span>560, 1.300 e 3.000 USDT correspondem aos valores atualmente apresentados para as modalidades T3, T4 e T5. Os valores de 13, 30 e 75 USDT são os valores diários indicados para essas modalidades.</span>
+        <span>560, 1.300 e 2.700 USDT correspondem aos valores atualmente apresentados para as modalidades T3, T4 e T5. Os valores de 13, 30 e 63 USDT são os valores diários indicados para essas modalidades.</span>
       </div>
 
       <div style="margin-top:14px;padding:16px 18px;border-radius:17px;background:#fff;border:1px solid #dce6d1;color:#697365;font-size:11px;line-height:1.55;">
