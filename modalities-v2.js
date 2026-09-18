@@ -10,16 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   section.innerHTML = `
     <div class="container">
       <div class="section-heading"><span>04</span><h2>Modalidades de participação</h2></div>
-      <p class="lead section-lead">Entre as modalidades atualmente apresentadas, este site destaca T2, T3 e T4. Cada uma possui um valor de participação e um valor diário indicado nas informações do programa.</p>
+      <p class="lead section-lead">Entre as modalidades atualmente apresentadas, este site destaca T3, T4 e T5. Cada uma possui um valor de participação e um valor diário indicado nas informações do programa.</p>
 
       <div class="options-grid premium-options">
         <article class="option-card">
-          <div class="option-ribbon">T2</div>
-          <div class="option-label">MODALIDADE</div>
-          <div class="option-price"><strong>230</strong><span>USDT</span></div>
-          <div class="daily"><small>Valor diário indicado</small><b>5 USDT</b></div>
-          <div class="option-copy">Uma das modalidades apresentadas para participação no projeto.</div>
-          <a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Ver plataforma</a>
+          <div class="option-ribbon">T5</div>
+          <div class="option-label">AVANÇADA+</div>
+          <div class="option-price"><strong>3.000</strong><span>USDT</span></div>
+          <div class="daily"><small>Valor diário indicado</small><b>75 USDT</b></div>
+          <div class="option-copy">Modalidade de maior valor entre as três opções atualmente apresentadas.</div>
+          <a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a>
         </article>
 
         <article class="option-card">
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="option-label">MODALIDADE</div>
           <div class="option-price"><strong>560</strong><span>USDT</span></div>
           <div class="daily"><small>Valor diário indicado</small><b>13 USDT</b></div>
-          <div class="option-copy">Modalidade com valor de participação e valor diário indicados superiores aos da T2.</div>
+          <div class="option-copy">Modalidade intermédia entre as opções atualmente apresentadas.</div>
           <a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Ver plataforma</a>
         </article>
 
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       <div class="financial-note">
         <b>Como interpretar estes valores</b>
-        <span>230, 560 e 1.300 USDT correspondem aos valores atualmente apresentados para as modalidades T2, T3 e T4. Os valores de 5, 13 e 30 USDT são valores diários indicados pelo programa e dependem do cumprimento das regras, da ativação e dos dias elegíveis. Não constituem promessa ou garantia de retorno.</span>
+        <span>560, 1.300 e 3.000 USDT correspondem aos valores atualmente apresentados para as modalidades T3, T4 e T5. Os valores de 13, 30 e 75 USDT são os valores diários indicados para essas modalidades.</span>
       </div>
 
       <div style="margin-top:14px;padding:16px 18px;border-radius:17px;background:#fff;border:1px solid #dce6d1;color:#697365;font-size:11px;line-height:1.55;">
