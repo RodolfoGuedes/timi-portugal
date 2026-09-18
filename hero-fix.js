@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const style = document.createElement('style');
   style.id = 'timi-hero-polished';
   style.textContent = `
+    .hero-mobile-art{display:none}
     .hero{
       position:relative!important;
       overflow:hidden!important;
@@ -114,6 +115,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     @media(max-width:900px){
       .hero::after{display:none!important;background-image:none!important;content:none!important}
+      .hero-mobile-art{display:block!important;width:min(calc(100% - 28px),620px)!important;margin:22px auto 0!important;border-radius:22px!important;overflow:hidden!important;box-shadow:0 14px 30px rgba(30,55,15,.12)!important}
+      .hero-mobile-art img{display:block!important;width:100%!important;height:auto!important;object-fit:cover!important}
       .hero-copy{width:100%!important;max-width:760px!important;margin:0 auto!important}
       .hero h1{font-size:clamp(44px,7vw,64px)!important}
     }
@@ -133,4 +136,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(style);
+  // On mobile, show the same TIMI artwork as a normal image immediately after the hero.
+  let mobileArt = document.querySelector('.hero-mobile-art');
+  if (!mobileArt) {
+    mobileArt = document.createElement('div');
+    mobileArt.className = 'hero-mobile-art';
+    mobileArt.innerHTML = '<img src="./WhatsApp%20Image%202026-09-17%20at%2003.21.39.jpeg" alt="TIMI — mobilidade urbana" loading="eager">';
+    hero.insertAdjacentElement('afterend', mobileArt);
+  }
+
 });
