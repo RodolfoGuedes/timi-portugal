@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="eyebrow">MOBILIDADE • TECNOLOGIA • PARTICIPAÇÃO</div>
           <h1>Conheça a <span>TIMI</span> e descubra como funciona.</h1>
           <p class="hero-text">Uma nova proposta ligada à mobilidade através de bicicletas e equipamentos partilhados, com um modelo de participação acompanhado por plataforma digital.</p>
-          <div class="hero-price-line"><span>A partir de</span><strong>230 USDT</strong><small>modalidade atualmente apresentada</small></div>
+          <div class="hero-price-line"><span>A partir de</span><strong>560 USDT</strong><small>modalidade atualmente apresentada</small></div>
           <div class="cta-row">
             <a class="btn btn-primary" href="#opcoes">Ver modalidades</a>
             <a class="btn btn-secondary" href="${telegramUrl}" target="_blank" rel="noopener noreferrer">💬 Falar no Telegram</a>
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="section-heading"><span>04</span><h2>Escolha como começar</h2></div>
         <p class="lead section-lead">Três modalidades foram selecionadas para apresentação no site. Compare os valores e conheça as condições antes de avançar.</p>
         <div class="options-grid premium-options">
-          <article class="option-card"><div class="option-ribbon">T2</div><div class="option-label">ENTRADA</div><div class="option-price"><strong>230</strong><span>USDT</span></div><div class="daily"><small>Valor diário indicado</small><b>5 USDT</b></div><div class="option-copy">Uma modalidade para conhecer o funcionamento do programa.</div><a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a></article>
+          <article class="option-card"><div class="option-ribbon">T5</div><div class="option-label">AVANÇADA+</div><div class="option-price"><strong>3.000</strong><span>USDT</span></div><div class="daily"><small>Valor diário indicado</small><b>75 USDT</b></div><div class="option-copy">A modalidade de maior valor entre as três opções apresentadas.</div><a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a></article>
           <article class="option-card featured-option"><div class="popular">MAIS PROCURADA</div><div class="option-ribbon">T3</div><div class="option-label">INTERMÉDIA</div><div class="option-price"><strong>560</strong><span>USDT</span></div><div class="daily"><small>Valor diário indicado</small><b>13 USDT</b></div><div class="option-copy">Uma modalidade intermédia para quem pretende aumentar a participação.</div><a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a></article>
           <article class="option-card"><div class="option-ribbon">T4</div><div class="option-label">AVANÇADA</div><div class="option-price"><strong>1.300</strong><span>USDT</span></div><div class="daily"><small>Valor diário indicado</small><b>30 USDT</b></div><div class="option-copy">A modalidade de maior valor entre as três opções apresentadas.</div><a class="btn btn-primary full" href="${affiliateUrl}" target="_blank" rel="noopener noreferrer">Quero conhecer</a></article>
         </div>
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <section class="section faq-section" id="faq"><div class="container narrow"><div class="section-heading"><span>11</span><h2>Perguntas frequentes</h2></div>
       <details><summary>Preciso indicar pessoas para participar?</summary><p>Não. Segundo as informações apresentadas, a indicação é opcional. Quem participa pode compartilhar o projeto e, quando aplicável, receber bónus de acordo com as regras.</p></details>
-      <details><summary>Quais são as modalidades apresentadas?</summary><p>O site apresenta T2 de 230 USDT, T3 de 560 USDT e T4 de 1.300 USDT, com valores diários indicados de 5, 13 e 30 USDT, respetivamente.</p></details>
+      <details><summary>Quais são as modalidades apresentadas?</summary><p>O site apresenta T3 de 560 USDT, T4 de 1.300 USDT e T5 de 3.000 USDT, com valores diários indicados de 13, 30 e 75 USDT, respetivamente.</p></details>
       <details><summary>Como funciona a ativação diária?</summary><p>As informações recebidas descrevem a utilização de um código na aplicação e dois períodos disponíveis: 10h–13h ou 19h–22h. É indicada uma ativação por dia.</p></details>
       <details><summary>Fins de semana e feriados contam?</summary><p>Segundo o relato recebido, o valor diário é contabilizado em dias úteis, excluindo fins de semana e feriados nacionais. Confirme sempre a regra vigente.</p></details>
       <details><summary>Quanto dura o ciclo?</summary><p>As informações recebidas indicam um ciclo de 365 dias.</p></details>
