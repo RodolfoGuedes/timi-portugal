@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <h1>Conheça o modelo de participação <span>TIMI</span> em Portugal.</h1>
       <p class="hero-text">Entenda em poucos minutos como funcionam as modalidades apresentadas, a atividade diária, os levantamentos e o ciclo de participação antes de tomar uma decisão.</p>
       <div class="hero-modalities-strip" style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:22px 0;">
-        <div><small>T5 • 3.000 USDT</small><strong>75 USDT/dia*</strong></div>
+        <div><small>T5 • 2.700 USDT</small><strong>63 USDT/dia*</strong></div>
         <div><small>T3 • 560 USDT</small><strong>13 USDT/dia*</strong></div>
         <div><small>T4 • 1.300 USDT</small><strong>30 USDT/dia*</strong></div>
       </div>
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const order = ['resumo','opcoes','projeto','timi-portugal','videos','como-funciona','ciclo','levantamentos','participar','indicacao','experiencia','beneficios','comunidade','seguranca','faq'];
   order.forEach(id => { const el = document.getElementById(id); if (el) main.appendChild(el); });
 
-  const modalityData = {T3:['560 USDT','13 USDT/dia','50 USDT'],T4:['1.300 USDT','30 USDT/dia','100 USDT'],T5:['3.000 USDT','75 USDT/dia','Consultar']};
+  const modalityData = {T3:['560 USDT','13 USDT/dia','50 USDT'],T4:['1.300 USDT','30 USDT/dia','100 USDT'],T5:['2.700 USDT','63 USDT/dia','200 USDT']};
   document.querySelectorAll('#opcoes .option-card').forEach(card => {
     const text=card.textContent||''; const key=['T3','T4','T5'].find(k=>text.includes(k)); if(!key||card.querySelector('.decision-facts'))return; const d=modalityData[key]; const facts=document.createElement('div'); facts.className='decision-facts'; facts.style.cssText='margin:14px 0;padding:14px;border-radius:14px;background:rgba(0,0,0,.035);font-size:12px;line-height:1.7;text-align:left'; facts.innerHTML=`<b style="display:block;margin-bottom:4px;">Condições em resumo</b><span>Valor apresentado: <strong>${d[0]}</strong></span><br><span>Valor diário indicado: <strong>${d[1]}</strong></span><br><span>Levantamento mínimo: <strong>${d[2]}</strong></span><br><span>Ciclo apresentado: <strong>365 dias</strong></span><br><span>Taxa informada no levantamento: <strong>25%</strong></span>`; const button=card.querySelector('a.btn'); if(button)card.insertBefore(facts,button);else card.appendChild(facts);
   });
