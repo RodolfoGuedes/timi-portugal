@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         <details><summary>O que acontece no final dos 365 dias?</summary><p>Segundo as condições apresentadas, o participante pode renovar por mais um ciclo pagando 50% do valor original da modalidade ou encerrar após o ciclo, situação em que está previsto um reembolso correspondente a 50% do valor original. Estas condições devem ser confirmadas na plataforma no momento da decisão.</p></details>
 
-        <details><summary>Existe taxa para levantar?</summary><p>Segundo as informações recebidas, cada levantamento está sujeito a uma taxa de 25%. Os mínimos atualmente indicados são 30 USDT para T2, 50 USDT para T3 e 100 USDT para T4. Taxas, mínimos e demais condições podem mudar.</p></details>
+        <details><summary>Existe taxa para levantar?</summary><p>Segundo as informações recebidas, cada levantamento está sujeito a uma taxa de 25%. Os mínimos atualmente indicados são 50 USDT para T3 e 100 USDT para T4. O mínimo da T5 deve ser consultado nas condições atuais. Taxas, mínimos e demais condições podem mudar.</p></details>
 
         <details><summary>Quanto tempo demora um levantamento?</summary><p>Na experiência relatada, o envio da TIMI para a OKX costuma levar aproximadamente 3 dias úteis. Depois do recebimento, a conversão para euros e a transferência bancária dependem da plataforma e do banco utilizados. Esses prazos não são garantidos.</p></details>
 
