@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .hero-card,.hero-proof{display:none!important}
 
     @media(max-width:900px){
-      .hero::after{opacity:.18!important;right:0!important;width:78%!important;background-size:100% auto!important}
+      .hero::after{display:none!important;background-image:none!important;content:none!important}
       .hero-copy{width:100%!important;max-width:760px!important;margin:0 auto!important}
       .hero h1{font-size:clamp(44px,7vw,64px)!important}
     }
