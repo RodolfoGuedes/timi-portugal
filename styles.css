@@ -7,13 +7,11 @@
   .timi-bottom-nav{display:none!important}
 }
 
-/* Mobile fix: remove quick-action words/buttons that overflow on the right side. */
+/* Mobile layout: keep the fixed bottom navigation while preventing horizontal overflow. */
 @media(max-width:850px){
-  .timi-bottom-nav,
-  .floating-actions,
-  .quick-actions,
-  .mobile-quick-actions{display:none!important}
-  body{padding-bottom:0!important;overflow-x:hidden!important;width:100%!important;max-width:100vw!important}
+  .timi-bottom-nav{display:grid!important}
+  .floating-actions,.quick-actions,.mobile-quick-actions{display:none!important}
+  body{padding-bottom:78px!important;overflow-x:hidden!important;width:100%!important;max-width:100vw!important}
   html{overflow-x:hidden!important;width:100%!important;max-width:100vw!important}
   #top,.hero,main,.section{max-width:100vw!important;overflow-x:hidden!important}
 }
