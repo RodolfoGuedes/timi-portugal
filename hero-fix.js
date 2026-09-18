@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const eyebrow = hero.querySelector('.eyebrow');
   if (eyebrow) eyebrow.textContent = 'MOBILIDADE • TECNOLOGIA • PARTICIPAÇÃO';
 
-  // Keep the approved Hero content and use the uploaded TIMI artwork only in the free space on desktop.
-  const oldVisual = document.querySelector('.timi-hero-visual');
-  if (oldVisual) oldVisual.remove();
+  // Remove legacy hero elements that can overflow on mobile. The hero artwork is rendered only by ::after on desktop.
+  document.querySelectorAll('.timi-hero-visual, .hero-card, .hero-proof').forEach((el) => el.remove());
 
   const style = document.createElement('style');
   style.id = 'timi-hero-polished';
