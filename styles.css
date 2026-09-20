@@ -39,3 +39,13 @@
     overflow-x:clip!important;
   }
 }
+
+/* Keep Telegram and Instagram side by side in the mobile header. */
+@media(max-width:850px){
+  .site-header .nav{display:flex!important;justify-content:space-between!important;align-items:center!important;gap:8px!important;min-width:0!important}
+  .site-header .brand{flex:0 0 auto!important;font-size:22px!important}
+  .site-header .nav-links{display:flex!important;flex:0 0 auto!important;align-items:center!important;justify-content:flex-end!important;gap:6px!important;min-width:0!important;max-width:calc(100% - 84px)!important}
+  .site-header .nav-links .nav-link{display:none!important}
+  .site-header .nav-links .nav-telegram{display:inline-flex!important;visibility:visible!important;align-items:center!important;justify-content:center!important;min-height:38px!important;padding:0 10px!important;font-size:10px!important;white-space:nowrap!important;flex:0 0 auto!important;line-height:1!important}
+}
+@media(max-width:370px){.site-header .nav-links{gap:4px!important}.site-header .nav-links .nav-telegram{padding:0 7px!important;font-size:9px!important}}
