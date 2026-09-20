@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .hero .eyebrow{margin:0 0 24px!important;letter-spacing:.18em!important;line-height:1.5!important}
     .hero h1{margin:0!important;max-width:820px!important;font-size:clamp(48px,6.4vw,82px)!important;line-height:.98!important;letter-spacing:-.045em!important;text-wrap:balance!important}
     .hero h1 span{white-space:nowrap}
-    .hero .hero-text{width:min(100%,700px)!important;max-width:700px!important;margin:28px auto 0!important;font-size:clamp(18px,1.6vw,21px)!important;line-height:1.65!important}
+    .hero .hero-text{color:#25351f!important;text-shadow:none!important;opacity:1!important}\n    .hero .hero-text{width:min(100%,700px)!important;max-width:700px!important;margin:28px auto 0!important;font-size:clamp(18px,1.6vw,21px)!important;line-height:1.65!important}
     .hero-price-line{margin:30px 0 0!important;padding:18px 28px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;flex-wrap:wrap!important;border-radius:18px!important}
     .hero-price-line span{font-size:15px!important}
     .hero-price-line strong{font-size:clamp(30px,3.5vw,42px)!important;line-height:1!important}
