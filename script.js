@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     <section class="section how-section" id="como-funciona">
       <div class="container">
         <div class="section-heading"><span>02</span><h2>Como funciona?</h2></div>
+        <div class="timi-video-layout timi-video-how" id="video-funcionamento"><div class="timi-video-copy"><span class="timi-video-kicker">PASSO A PASSO</span><h3>Veja como funciona a atividade diária</h3><p>Assista ao vídeo explicativo e consulte os passos e horários indicados nesta secção.</p><a href="https://www.youtube.com/shorts/xehlUP11U7I" target="_blank" rel="noopener noreferrer">Ver no YouTube ↗</a></div><div class="timi-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/xehlUP11U7I" title="Vídeo sobre o funcionamento da atividade diária TIMI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
         <p class="lead section-lead">A ideia é simples: escolher uma modalidade, utilizar a plataforma e acompanhar a participação de acordo com as regras do programa.</p>
         <div class="steps premium-steps">
           <article><div class="step-number">01</div><div class="step-icon">💳</div><h3>Escolha</h3><p>Conheça as modalidades apresentadas e escolha a que pretende conhecer melhor.</p></article>
@@ -86,7 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <article><div class="step-number">03</div><div class="step-icon">🚲</div><h3>Ative</h3><p>Insira o código na aplicação e realize uma ativação num dos períodos disponíveis.</p></article>
           <article><div class="step-number">04</div><div class="step-icon">📊</div><h3>Acompanhe</h3><p>Acompanhe a sua participação, atividade e condições através dos canais disponibilizados.</p></article>
         </div>
-        <div class="timi-video-layout timi-video-how" id="video-funcionamento"><div class="timi-video-copy"><span class="timi-video-kicker">PASSO A PASSO</span><h3>Veja como funciona a atividade diária</h3><p>Assista ao vídeo explicativo e consulte os passos e horários indicados nesta secção.</p><a href="https://www.youtube.com/shorts/xehlUP11U7I" target="_blank" rel="noopener noreferrer">Ver no YouTube ↗</a></div><div class="timi-video-frame"><iframe src="https://www.youtube-nocookie.com/embed/xehlUP11U7I" title="Vídeo sobre o funcionamento da atividade diária TIMI" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div></div>
         <div class="activation-card"><div><span>ATIVAÇÃO DIÁRIA</span><strong>Escolha um dos períodos</strong></div><div class="time-pill"><b>10:00–13:00</b><small>manhã</small></div><div class="or">ou</div><div class="time-pill"><b>19:00–22:00</b><small>noite</small></div><div class="activation-note">Uma ativação por dia, conforme as condições apresentadas.</div></div>
       </div>
     </section>
