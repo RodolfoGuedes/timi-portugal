@@ -7,18 +7,18 @@ document.addEventListener('DOMContentLoaded', () => {
   section.innerHTML = `
     <div class="container">
       <div class="section-heading"><span>PROGRAMA DE AGENTES</span><h2>Conheça a progressão por equipas</h2></div>
-      <p class="lead section-lead">Além das modalidades e da atividade diária, os materiais do projeto TIMI apresentam um programa separado de agentes, baseado em indicações e na formação de equipas. A participação nesse programa não é obrigatória para quem utiliza apenas a sua modalidade.</p>
+      <p class="lead section-lead">Além das modalidades e da atividade diária, a TIMI disponibiliza um programa separado de agentes, baseado em indicações e na formação de equipas. A participação nesse programa não é obrigatória para quem utiliza apenas a sua modalidade.</p>
       <div class="timi-agent-highlight">
         <div><span class="timi-agent-eyebrow">PRIMEIRO MARCO · AGENTE NÍVEL 1</span><h3>Como se qualificar?</h3><p>Para se qualificar como <strong>Agente Nível 1</strong>, é necessário indicar <strong>pelo menos 5 pessoas</strong> e cada uma delas deve aderir, no mínimo, à modalidade <strong>T3</strong> (T3 ou superior).</p><p class="timi-agent-note">Cinco contactos ou inscrições sem adesão qualificada não cumprem, por si só, este requisito. A qualificação e a elegibilidade para eventuais bónus são condições distintas.</p></div>
         <div class="timi-agent-number" aria-label="Cinco indicações qualificadas"><strong>5</strong><span>indicações<br>qualificadas</span></div>
       </div>
       <div class="timi-agent-levels">
         <article><span>01</span><h3>Nível 1</h3><p>Indicar pelo menos cinco pessoas com adesão individual à modalidade T3 ou superior.</p></article>
-        <article><span>02</span><h3>Nível 2</h3><p>Os materiais ilustrativos apresentam a formação de dois agentes de Nível 1. Confirme os critérios completos e atuais na plataforma.</p></article>
-        <article><span>03</span><h3>Nível 3</h3><p>Os materiais ilustrativos apresentam a formação de dois agentes de Nível 2. Confirme os critérios completos e atuais na plataforma.</p></article>
+        <article><span>02</span><h3>Nível 2</h3><p>A progressão para este nível envolve a formação de dois agentes de Nível 1. Consulte as condições de qualificação na plataforma.</p></article>
+        <article><span>03</span><h3>Nível 3</h3><p>A progressão para este nível envolve a formação de dois agentes de Nível 2. Consulte as condições de qualificação na plataforma.</p></article>
       </div>
-      <details class="timi-agent-conditions"><summary>O que devo verificar sobre os bónus?</summary><p>Os materiais divulgados anunciam bónus de promoção e bónus associados a períodos específicos. Não é possível concluir apenas pelas imagens se são cumulativos, quando são pagos ou quais são todas as condições de elegibilidade. Consulte as regras atuais, incluindo requisitos de adesão, permanência, levantamentos e eventuais alterações. Bónus e valores diários não são garantidos.</p></details>
-      <p class="timi-agent-footnote">O programa de agentes é separado dos valores diários associados às modalidades. Não é necessário recrutar pessoas para realizar a atividade diária da sua própria modalidade, segundo as informações apresentadas.</p>
+      <details class="timi-agent-conditions"><summary>O que devo verificar sobre os bónus?</summary><p>O programa inclui bónus de promoção e bónus associados a períodos específicos. Os requisitos de elegibilidade, a acumulação de bónus e os prazos de pagamento dependem das regras do programa. Consulte as condições na plataforma antes de participar. Os valores não constituem garantia de pagamento.</p></details>
+      <p class="timi-agent-footnote">O programa de agentes é separado dos valores diários associados às modalidades. Não é necessário recrutar pessoas para realizar a atividade diária da sua própria modalidade.</p>
       <a class="timi-agent-link" href="#indicacao">Ler mais sobre indicações e participação →</a>
     </div>`;
   modalities.insertAdjacentElement('afterend', section);
