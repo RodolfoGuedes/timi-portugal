@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     [/Também foi relatado um caso em que, /gi, 'Em situações justificadas, '],
     [/Também foi relatada a possibilidade de /gi, 'Pode ocorrer '],
     [/Foi relatada uma regra de /gi, 'A regra estabelece '],
-    [/Na experiência relatada, /gi, 'Normalmente, '],
+    [/Na experiência relatada, /gi, 'Em geral, '],
     [/O processo relatado é /gi, 'O processo é '],
     [/O procedimento relatado segue este fluxo:/gi, 'O processo segue este fluxo:'],
     [/O código foi descrito como /gi, 'O código funciona como '],
@@ -20,10 +20,10 @@ document.addEventListener('DOMContentLoaded', () => {
     [/Informações relatadas x documentação oficial/gi, 'Consulte sempre as condições atuais'],
     [/Esta área reúne as principais regras e dúvidas relatadas sobre a participação\./gi, 'Esta área reúne as principais regras e dúvidas sobre a participação.'],
     [/\*Exemplo baseado na regra de 50% que foi apresentada aos participantes\./gi, '*Exemplo calculado com base na regra de 50%.'],
-    [/Os valores e valores diários acima são os apresentados nas informações recebidas\./gi, 'Os valores e valores diários acima correspondem às modalidades exibidas na plataforma.'],
+    [/Os valores e valores diários acima são os apresentados nas informações recebidas\./gi, 'Os valores e valores diários acima correspondem às modalidades descritas nesta página.'],
     [/valores apresentados nas informações do programa/gi, 'valores definidos para as modalidades'],
-    [/As informações recebidas descrevem /gi, 'A TIMI trabalha com '],
-    [/Informações recebidas apontam para /gi, 'O projeto está em ']
+    [/As informações recebidas descrevem /gi, 'O projeto inclui '],
+    [/Informações recebidas apontam para /gi, 'O projeto prevê ']
   ];
 
   const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
