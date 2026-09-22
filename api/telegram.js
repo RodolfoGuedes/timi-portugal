@@ -1,25 +1,158 @@
-const TOKEN=process.env.TELEGRAM_BOT_TOKEN;const API=`https://api.telegram.org/bot${TOKEN}`;const SITE='https://timi-portugal.vercel.app/';const RODOLFO='https://t.me/rodolfoguedes';const AFFILIATE='https://timihqs.com/#/pages/login/registerView?code=d3of54';
-async function telegram(method,body){const r=await fetch(`${API}/${method}`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return r.json()}
-async function sendMessage(chat_id,text,keyboard){const body={chat_id,text,parse_mode:'HTML',disable_web_page_preview:true};if(keyboard)body.reply_markup={inline_keyboard:keyboard};return telegram('sendMessage',body)}
-const cb=(text,data)=>({text,callback_data:data}),url=(text,link)=>({text,url:link}),homeRow=[cb('🏠 Menu principal','home')];
-const home=id=>sendMessage(id,'👋 <b>Bem-vindo ao TIMI Portugal</b>\n\nAqui pode conhecer o projeto, modalidades, rotina diária, ciclo, levantamentos e outras informações úteis.\n\nEscolha uma opção:',[[cb('🟢 Conhecer a TIMI','conhecer')],[cb('📅 Funcionamento diário','diario')],[cb('💰 Modalidades T3/T4/T5','modalidades')],[cb('🔄 Ciclo de 365 dias','ciclo')],[cb('💵 Levantamentos','levantamentos')],[cb('🚀 Como participar','participar')],[cb('🤝 Indicações','indicacoes')],[cb('🇵🇹 TIMI em Portugal','portugal')],[cb('🎥 Vídeos','videos')],[cb('❓ Regras e FAQ','faq')],[cb('ℹ️ Informações importantes','informacoes')],[url('👤 Falar com Rodolfo',RODOLFO)]]);
-const conhecer=id=>sendMessage(id,'🟢 <b>Como funciona a TIMI</b>\n\nA TIMI é um projeto ligado à mobilidade partilhada com bicicletas convencionais e elétricas.\n\nOnde o serviço está disponível, o público localiza uma bicicleta, utiliza a aplicação, lê o QR Code e paga pelo uso.\n\nO projeto também possui modalidades de participação com valores, duração e regras próprias.',[[cb('📅 Rotina diária','diario')],[cb('💰 Ver modalidades','modalidades')],[cb('🇵🇹 TIMI em Portugal','portugal')],homeRow]);
-const diario=id=>sendMessage(id,'📅 <b>Funcionamento diário</b>\n\nNos dias elegíveis, o participante acompanha os grupos, obtém o código diário e insere-o na aplicação TIMI.\n\n🕙 <b>10:00–13:00</b>\n🌙 <b>19:00–22:00</b>\nHorário de Portugal. Basta utilizar uma das janelas.\n\nA atividade ocorre nos dias úteis elegíveis, excluindo fins de semana e feriados nacionais. Se perder as duas janelas, o valor daquele dia não é recuperado.\n\nO código funciona como mecanismo de participação e acompanhamento das informações do projeto.',[[cb('⚠️ Ausências e regras','ausencias')],[cb('❓ FAQ','faq')],homeRow]);
-const modalidades=id=>sendMessage(id,'💰 <b>Modalidades T3/T4/T5</b>\n\n🔵 <b>T3</b> — 560 USDT\nValor diário: <b>13 USDT</b>\n\n🟣 <b>T4</b> — 1.300 USDT\nValor diário: <b>30 USDT</b>\n\n🟢 <b>T5</b> — 2.700 USDT\nValor diário: <b>63 USDT</b>\n\nA contabilização ocorre nos dias elegíveis mediante a atividade diária prevista na modalidade.',[[cb('📊 Comparar','comparar')],[cb('🔄 Ciclo','ciclo')],[cb('💵 Levantamentos','levantamentos')],[cb('🚀 Como participar','participar')],homeRow]);
-const comparar=id=>sendMessage(id,'📊 <b>Comparação rápida</b>\n\nT3: 560 USDT → 13 USDT/dia\nT4: 1.300 USDT → 30 USDT/dia\nT5: 2.700 USDT → 63 USDT/dia\n\nOs valores acima são anteriores à taxa de levantamento.',[[cb('💵 Levantamentos','levantamentos')],[cb('🔄 Ciclo','ciclo')],homeRow]);
-const ciclo=id=>sendMessage(id,'🔄 <b>Ciclo de 365 dias</b>\n\nCada modalidade tem duração de <b>365 dias</b>.\n\n🔄 <b>Continuar</b> — renovação por 50% do valor original.\n↪️ <b>Encerrar</b> — ao concluir o ciclo, a regra prevê reembolso de 50% do valor original.\n\nExemplo T4: 1.300 USDT → 650 USDT para renovação ou 650 USDT no encerramento.\n\nNão existe um procedimento normal de cancelamento com reembolso antecipado antes do fim do ciclo.',[[cb('❓ FAQ','faq')],homeRow]);
-const levantamentos=id=>sendMessage(id,'💵 <b>Levantamentos</b>\n\nMínimos: T3 — <b>50 USDT</b> | T4 — <b>100 USDT</b> | T5 — <b>200 USDT</b>\n\nCada levantamento tem <b>taxa de 25%</b>. Exemplo: ao solicitar 100, o valor após essa taxa é 75, antes de eventuais custos externos.\n\nFluxo: TIMI → criptoativo → OKX → EUR → banco. O envio TIMI → OKX costuma levar cerca de 3 dias úteis.',[[cb('🔐 Segurança cripto','cripto')],[cb('🚀 Como participar','participar')],homeRow]);
-const participar=id=>sendMessage(id,'🚀 <b>Como participar</b>\n\n<b>EUR → OKX → USDT/USDC → Polygon → TIMI → T3/T4/T5</b>\n\n1️⃣ Preparar os fundos.\n2️⃣ Converter para o criptoativo indicado.\n3️⃣ Confirmar moeda, rede e endereço na TIMI.\n4️⃣ Transferir e aguardar a confirmação.\n5️⃣ Ler as condições e selecionar a modalidade.',[[cb('🔐 Segurança cripto','cripto')],[url('🌐 Abrir plataforma TIMI',AFFILIATE)],[url('👤 Falar com Rodolfo',RODOLFO)],homeRow]);
-const cripto=id=>sendMessage(id,'🔐 <b>Transferências</b>\n\nUSDT e USDC são criptoativos diferentes e Polygon é uma rede blockchain. Utilize os dados mostrados na sua própria conta TIMI e confira moeda, rede e endereço antes de enviar.',[[cb('🚀 Como participar','participar')],[cb('ℹ️ Informações importantes','informacoes')],homeRow]);
-const indicacoes=id=>sendMessage(id,'🤝 <b>Indicações</b>\n\n<b>Indicar outras pessoas é opcional.</b> É possível participar durante todo o ciclo sem indicar ninguém, mantendo as regras da modalidade e a atividade diária.\n\nExiste também um programa separado de progressão e benefícios por indicação.',[[url('🌐 Ver no site',`${SITE}#indicacao`)],[url('👤 Perguntar a Rodolfo',RODOLFO)],homeRow]);
-const portugal=id=>sendMessage(id,'🇵🇹 <b>TIMI em Portugal</b>\n\nA TIMI já possui presença do projeto em Portugal. Lisboa, Portimão e Aveiro estão entre as cidades divulgadas. Porto integra a expansão comunicada.\n\nPara o público: localizar bicicleta → abrir aplicação → ler QR Code → utilizar o serviço.',[[cb('🎥 Ver vídeos','videos')],[url('🌐 Ver no site',`${SITE}#timi-portugal`)],homeRow]);
-const videos=id=>sendMessage(id,'🎥 <b>Vídeos TIMI</b>\n\nVeja entrevistas, eventos e experiências da TIMI em Portugal.',[[url('⭐ Entrevista especial','https://youtu.be/QMu3hg2w_8w')],[url('🎬 Vídeo TIMI','https://youtu.be/KXUMbNIgTqU')],[url('🎉 Evento em Lisboa','https://youtu.be/ISsFWPg50gg')],[url('🇵🇹 TIMI Portugal','https://youtu.be/UBKWfs0cdA8')],homeRow]);
-const ausencias=id=>sendMessage(id,'⚠️ <b>Ausências e inatividade</b>\n\nA participação prevê acompanhamento regular da atividade. Ausências consecutivas podem gerar medidas na conta, incluindo redução temporária do valor diário e, em casos prolongados, bloqueio ou exclusão. Situações justificadas podem ser analisadas pelo responsável.\n\nOs valores dos dias em que o código não foi realizado não são recuperados.',[[cb('📅 Funcionamento diário','diario')],[cb('❓ FAQ','faq')],homeRow]);
-const faq=id=>sendMessage(id,'❓ <b>Regras e dúvidas frequentes</b>\n\nEscolha o assunto:',[[cb('⏰ Perdi o código','faq_codigo')],[cb('⚠️ Ausências / bloqueio','ausencias')],[cb('🔄 Sair antes de 365 dias','faq_saida')],[cb('💵 Taxa e mínimos','levantamentos')],[cb('🤝 Preciso indicar?','indicacoes')],[cb('💬 O que é BonChat?','faq_bonchat')],[cb('📄 Condições na aplicação','faq_contrato')],[cb('ℹ️ Informações importantes','informacoes')],[url('👤 Falar com Rodolfo',RODOLFO)],homeRow]);
-const faqCodigo=id=>sendMessage(id,'⏰ <b>Perdi o código diário. E agora?</b>\n\nSe nenhuma das duas janelas for utilizada no dia elegível, o valor daquele dia é perdido e não pode ser recuperado.',[[cb('📅 Rotina diária','diario')],[cb('⬅️ FAQ','faq')],homeRow]);
-const faqSaida=id=>sendMessage(id,'🔄 <b>Posso sair antes dos 365 dias?</b>\n\nNão existe um procedimento normal de cancelamento com reembolso antecipado. O reembolso de 50% aplica-se ao encerramento normal após a conclusão do ciclo.',[[cb('🔄 Ver ciclo','ciclo')],[cb('⬅️ FAQ','faq')],homeRow]);
-const faqBonchat=id=>sendMessage(id,'💬 <b>O que é BonChat?</b>\n\nBonChat não é a aplicação TIMI. É uma ferramenta externa de comunicação utilizada para grupos, códigos, formações, eventos, comunicados e acompanhamento dos participantes.',[[cb('📅 Rotina diária','diario')],[cb('⬅️ FAQ','faq')],homeRow]);
-const faqContrato=id=>sendMessage(id,'📄 <b>Onde consultar as condições?</b>\n\nAs regras e condições ficam disponíveis dentro da aplicação. Leia as condições vigentes antes de selecionar uma modalidade.',[[cb('⬅️ FAQ','faq')],homeRow]);
-const informacoes=id=>sendMessage(id,'ℹ️ <b>Informações importantes</b>\n\nAs informações deste bot resumem o funcionamento, valores e condições do projeto TIMI. Valores diários, prazos, taxas, regras, renovação e reembolso dependem das condições vigentes da plataforma e podem ser alterados.\n\nA participação envolve criptoativos e riscos operacionais; resultados não são garantidos. Transferências de criptoativos podem ser irreversíveis. Antes de participar, consulte as regras atuais na aplicação e confirme cuidadosamente moeda, rede e endereço em qualquer transferência.',[[url('🌐 Ver site',SITE)],[url('👤 Falar com Rodolfo',RODOLFO)],homeRow]);
-const desconhecido=id=>sendMessage(id,'🤖 Não identifiquei essa opção. Utilize o menu abaixo ou fale diretamente com Rodolfo.',[[cb('🏠 Abrir menu','home')],[url('👤 Falar com Rodolfo',RODOLFO)]]);
-export default async function handler(req,res){if(req.method!=='POST')return res.status(200).json({ok:true,service:'TIMI Portugal Telegram Bot'});if(!TOKEN)return res.status(500).json({ok:false,error:'Bot token not configured'});try{const u=req.body;if(u.message){const id=u.message.chat.id,t=u.message.text?.trim().toLowerCase()||'';await((t==='/start'||t==='/menu'||t==='menu')?home:desconhecido)(id);return res.status(200).json({ok:true})}if(u.callback_query){const q=u.callback_query,id=q.message.chat.id;await telegram('answerCallbackQuery',{callback_query_id:q.id});const a={home,conhecer,diario,modalidades,comparar,ciclo,levantamentos,participar,cripto,indicacoes,portugal,videos,ausencias,faq,faq_codigo:faqCodigo,faq_saida:faqSaida,faq_bonchat:faqBonchat,faq_contrato:faqContrato,informacoes};await(a[q.data]||desconhecido)(id);return res.status(200).json({ok:true})}return res.status(200).json({ok:true})}catch(e){console.error(e);return res.status(200).json({ok:false})}}
+const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
+const API = `https://api.telegram.org/bot${TOKEN}`;
+const SITE = 'https://timi-portugal.vercel.app';
+const RODOLFO = 'https://t.me/rodolfoguedes';
+const AFFILIATE = 'https://timihqs.com/#/pages/login/registerView?code=d3of54';
+
+async function telegram(method, body) {
+  const response = await fetch(`${API}/${method}`, {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(body)
+  });
+  return response.json();
+}
+
+async function sendMessage(chatId, text, keyboard) {
+  const body = {chat_id: chatId, text, parse_mode: 'HTML', disable_web_page_preview: true};
+  if (keyboard) body.reply_markup = {inline_keyboard: keyboard};
+  return telegram('sendMessage', body);
+}
+
+const cb = (text, data) => ({text, callback_data: data});
+const url = (text, link) => ({text, url: link});
+const homeRow = [cb('🏠 Menu principal', 'home')];
+
+const home = id => sendMessage(id,
+  '👋 <b>Bem-vindo à TIMI Portugal</b>\n\nMobilidade, tecnologia e uma comunidade que cresce em Portugal.\n\nAqui pode entender como funciona, comparar as modalidades e conhecer pessoas que já participam. Por onde deseja começar?',
+  [
+    [cb('▶️ Como funciona', 'funciona'), cb('💚 Modalidades', 'modalidades')],
+    [cb('👥 Comunidade TIMI', 'comunidade')],
+    [cb('❓ Dúvidas frequentes', 'faq')],
+    [url('🚀 Criar a minha conta', AFFILIATE)],
+    [url('👤 Falar com Rodolfo', RODOLFO)],
+    [url('🌐 Visitar o site', `${SITE}/`)]
+  ]
+);
+
+const funciona = id => sendMessage(id,
+  '▶️ <b>Como funciona a TIMI?</b>\n\n1️⃣ Crie a sua conta.\n2️⃣ Escolha uma modalidade.\n3️⃣ Acompanhe o grupo e obtenha o código diário.\n4️⃣ Insira o código na aplicação numa das janelas disponíveis.\n5️⃣ Acompanhe a sua atividade e o saldo na plataforma.\n\nA validação diária leva apenas alguns minutos.',
+  [
+    [cb('⏰ Ver horários', 'horarios'), cb('💚 Ver modalidades', 'modalidades')],
+    [url('🎬 Ver explicação completa', `${SITE}/como-funciona.html`)],
+    [url('🚀 Criar conta', AFFILIATE)],
+    homeRow
+  ]
+);
+
+const horarios = id => sendMessage(id,
+  '⏰ <b>Janelas da atividade diária</b>\n\n☀️ <b>10:00–13:00</b>\n🌙 <b>19:00–22:00</b>\n\nHorário de Portugal. Nos dias elegíveis, basta realizar a atividade numa das duas janelas.',
+  [[cb('▶️ Voltar ao funcionamento', 'funciona')], [cb('❓ Outras dúvidas', 'faq')], homeRow]
+);
+
+const modalidades = id => sendMessage(id,
+  '💚 <b>Escolha como quer começar</b>\n\n<b>T3</b> — 560 USDT\n13 USDT por dia elegível\nMínimo de levantamento: 50 USDT\n\n<b>T4</b> — 1.300 USDT\n30 USDT por dia elegível\nMínimo de levantamento: 100 USDT\n\n<b>T5</b> — 2.700 USDT\n63 USDT por dia elegível\nMínimo de levantamento: 200 USDT',
+  [
+    [cb('🔄 Ciclo de 365 dias', 'ciclo')],
+    [cb('💵 Como levantar', 'levantamentos')],
+    [url('📊 Comparar no site', `${SITE}/modalidades.html`)],
+    [url('🚀 Quero participar', AFFILIATE)],
+    [url('👤 Ajuda para escolher', RODOLFO)],
+    homeRow
+  ]
+);
+
+const ciclo = id => sendMessage(id,
+  '🔄 <b>Ciclo de 365 dias</b>\n\nCada modalidade tem duração de 365 dias. No final do ciclo, o participante pode conhecer as opções disponíveis para continuar ou encerrar a participação.\n\nDurante o ciclo, a atividade diária é acompanhada diretamente na aplicação.',
+  [[cb('💚 Ver modalidades', 'modalidades')], [url('👤 Tirar uma dúvida', RODOLFO)], homeRow]
+);
+
+const levantamentos = id => sendMessage(id,
+  '💵 <b>Levantamentos</b>\n\nQuando o saldo atinge o mínimo da modalidade, o levantamento pode ser solicitado para uma carteira compatível.\n\nT3: mínimo de <b>50 USDT</b>\nT4: mínimo de <b>100 USDT</b>\nT5: mínimo de <b>200 USDT</b>\n\nO fluxo utilizado é TIMI → carteira de criptoativos → conversão para EUR → conta bancária.',
+  [[cb('🔐 Transferência passo a passo', 'transferencia')], [url('👤 Pedir acompanhamento', RODOLFO)], homeRow]
+);
+
+const transferencia = id => sendMessage(id,
+  '🔐 <b>Ativação e transferências</b>\n\n1️⃣ Prepare o valor na plataforma de criptoativos utilizada.\n2️⃣ Converta para a moeda indicada.\n3️⃣ Confirme a moeda, a rede e o endereço mostrados na sua conta TIMI.\n4️⃣ Faça a transferência.\n5️⃣ Depois da confirmação do saldo, escolha a modalidade.\n\nSe for a sua primeira vez, peça acompanhamento antes de transferir.',
+  [[url('👤 Quero acompanhamento', RODOLFO)], [url('🚀 Abrir plataforma TIMI', AFFILIATE)], homeRow]
+);
+
+const comunidade = id => sendMessage(id,
+  '👥 <b>Comunidade TIMI Portugal</b>\n\nA TIMI já reúne participantes de várias cidades em eventos, encontros e atividades.\n\nNa página da comunidade pode ver entrevistas, momentos do lançamento em Lisboa e vídeos de pessoas que já participam do projeto.',
+  [
+    [url('🎥 Ver pessoas e eventos', `${SITE}/comunidade.html`)],
+    [cb('🎬 Escolher um vídeo', 'videos')],
+    [url('👤 Falar com Rodolfo', RODOLFO)],
+    homeRow
+  ]
+);
+
+const videos = id => sendMessage(id,
+  '🎬 <b>Pessoas reais, momentos reais</b>\n\nEscolha um vídeo para conhecer participantes, eventos e experiências da comunidade TIMI:',
+  [
+    [url('⭐ Entrevista com Francisco Roberto', 'https://youtu.be/QMu3hg2w_8w')],
+    [url('🎨 Participação e criatividade', 'https://youtu.be/KXUMbNIgTqU')],
+    [url('🎉 Lançamento em Lisboa', 'https://youtu.be/ISsFWPg50gg')],
+    [url('🇵🇹 Comunidade TIMI Portugal', 'https://youtu.be/UBKWfs0cdA8')],
+    [cb('👥 Voltar à comunidade', 'comunidade')],
+    homeRow
+  ]
+);
+
+const faq = id => sendMessage(id,
+  '❓ <b>Dúvidas frequentes</b>\n\nEscolha o assunto que deseja consultar:',
+  [
+    [cb('⏰ Horários da atividade', 'horarios')],
+    [cb('🔄 Duração da modalidade', 'ciclo')],
+    [cb('💵 Levantamentos', 'levantamentos')],
+    [cb('🤝 Preciso indicar pessoas?', 'indicacoes')],
+    [cb('💬 Para que serve o grupo?', 'grupo')],
+    [url('📚 Ver todas as respostas', `${SITE}/faq.html`)],
+    [url('👤 Falar com Rodolfo', RODOLFO)],
+    homeRow
+  ]
+);
+
+const indicacoes = id => sendMessage(id,
+  '🤝 <b>Preciso indicar outras pessoas?</b>\n\nNão. As indicações são opcionais. Pode realizar a atividade diária da sua modalidade sem indicar outras pessoas.\n\nPara quem deseja divulgar o projeto, existe um programa separado de progressão por equipas.',
+  [[cb('❓ Outras dúvidas', 'faq')], [url('👤 Saber mais', RODOLFO)], homeRow]
+);
+
+const grupo = id => sendMessage(id,
+  '💬 <b>Para que serve o grupo?</b>\n\nOs canais da comunidade são utilizados para divulgar códigos, formações, eventos, comunicados e ajudar os participantes durante o percurso.\n\nA aplicação TIMI e os canais de comunicação são serviços distintos.',
+  [[cb('▶️ Como funciona', 'funciona')], [cb('❓ Outras dúvidas', 'faq')], homeRow]
+);
+
+const desconhecido = id => sendMessage(id,
+  '🤖 Não encontrei essa opção. Utilize o menu ou fale diretamente comigo para receber ajuda.',
+  [[cb('🏠 Abrir menu', 'home')], [url('👤 Falar com Rodolfo', RODOLFO)]]
+);
+
+const actions = {home, funciona, horarios, modalidades, ciclo, levantamentos, transferencia, comunidade, videos, faq, indicacoes, grupo};
+
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(200).json({ok: true, service: 'TIMI Portugal Telegram Bot'});
+  if (!TOKEN) return res.status(500).json({ok: false, error: 'Bot token not configured'});
+
+  try {
+    const update = req.body;
+    if (update.message) {
+      const chatId = update.message.chat.id;
+      const text = update.message.text?.trim().toLowerCase() || '';
+      await (text === '/start' || text === '/menu' || text === 'menu' ? home : desconhecido)(chatId);
+      return res.status(200).json({ok: true});
+    }
+
+    if (update.callback_query) {
+      const query = update.callback_query;
+      await telegram('answerCallbackQuery', {callback_query_id: query.id});
+      await (actions[query.data] || desconhecido)(query.message.chat.id);
+      return res.status(200).json({ok: true});
+    }
+
+    return res.status(200).json({ok: true});
+  } catch (error) {
+    console.error(error);
+    return res.status(200).json({ok: false});
+  }
+}
