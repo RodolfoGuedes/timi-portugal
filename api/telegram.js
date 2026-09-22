@@ -1,6 +1,6 @@
 const TOKEN = process.env.TELEGRAM_BOT_TOKEN;
 const API = `https://api.telegram.org/bot${TOKEN}`;
-const SITE = 'https://timi-portugal.vercel.app';
+const SITE = 'https://www.timiportugal.com';
 const RODOLFO = 'https://t.me/rodolfoguedes';
 const AFFILIATE = 'https://timihqs.com/#/pages/login/registerView?code=d3of54';
 

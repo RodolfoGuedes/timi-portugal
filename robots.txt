@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://timi-portugal.vercel.app/sitemap.xml
+Sitemap: https://www.timiportugal.com/sitemap.xml
