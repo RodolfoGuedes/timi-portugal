@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const config = window.TIMI_CONFIG;
   const current = location.pathname.split('/').pop() || 'index.html';
-  const links = [['index.html','Início'],['como-funciona.html','Como funciona'],['modalidades.html','Modalidades'],['comunidade.html','Comunidade'],['faq.html','Dúvidas']];
+  const links = [['index.html','Início'],['projeto.html','O Projeto'],['como-funciona.html','Como funciona'],['modalidades.html','Modalidades'],['comunidade.html','Comunidade'],['faq.html','Dúvidas']];
   const header = document.querySelector('[data-header]');
   if (header) header.innerHTML = `<div class="container nav"><a class="brand" href="index.html" aria-label="TIMI Portugal"><span>◉</span>TIMI</a><button class="menu-toggle" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button><nav class="nav-links" aria-label="Navegação principal">${links.map(([url,label]) => `<a href="${url}"${current === url ? ' class="active"' : ''}>${label}</a>`).join('')}<a class="nav-cta" data-affiliate>Participar</a></nav></div>`;
   const footer = document.querySelector('[data-footer]');
